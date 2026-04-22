@@ -4,10 +4,10 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Tuimagen Studio — Creatividad · Estrategia · IA</title>
-  <meta name="description" content="Estudio creativo multidisciplinario. Diseño gráfico, marketing digital e inteligencia artificial al servicio de tu marca."/>
+  <meta name="description" content="Estudio creativo multidisciplinario. Diseño gráfico, marketing digital e inteligencia artificial."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -16,18 +16,17 @@
 <nav class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">T</div>
-      <span>TUIMAGEN<em>STUDIO</em></span>
+      <img src="logo.png" alt="Tuimagen Studio" class="nav-logo-img"/>
     </a>
     <div class="nav-links">
       <a href="#about"    class="nav-link" data-es="Estudio"   data-en="Studio">Estudio</a>
-      <a href="#services" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a>
-      <a href="#branches" class="nav-link" data-es="Ramas"     data-en="Branches">Ramas</a>
+      <a href="#branches" class="nav-link" data-es="Servicios" data-en="Services">Servicios</a>
+      <a href="#app"      class="nav-link" data-es="Productos" data-en="Products">Productos</a>
       <a href="#contact"  class="nav-link" data-es="Contacto"  data-en="Contact">Contacto</a>
     </div>
-    <div class="nav-actions">
-      <button class="lang-toggle" id="langToggle" onclick="toggleLang()">EN</button>
-      <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-nav" data-es="Probar App" data-en="Try App">Probar App</a>
+    <div class="nav-right">
+      <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+      <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-cta" data-es="Probar App ↗" data-en="Try App ↗">Probar App ↗</a>
     </div>
     <button class="nav-burger" id="navBurger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -35,56 +34,53 @@
   </div>
   <div class="nav-mobile" id="navMobile">
     <a href="#about"    onclick="toggleMenu()" data-es="Estudio"   data-en="Studio">Estudio</a>
-    <a href="#services" onclick="toggleMenu()" data-es="Servicios" data-en="Services">Servicios</a>
-    <a href="#branches" onclick="toggleMenu()" data-es="Ramas"     data-en="Branches">Ramas</a>
+    <a href="#branches" onclick="toggleMenu()" data-es="Servicios" data-en="Services">Servicios</a>
+    <a href="#app"      onclick="toggleMenu()" data-es="Productos" data-en="Products">Productos</a>
     <a href="#contact"  onclick="toggleMenu()" data-es="Contacto"  data-en="Contact">Contacto</a>
-    <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-nav-mobile" data-es="Probar App" data-en="Try App">Probar App</a>
+    <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-cta" data-es="Probar App ↗" data-en="Try App ↗">Probar App ↗</a>
   </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
     <div class="hero-grid"></div>
   </div>
   <div class="hero-inner">
-    <div class="hero-eyebrow anim-up">
-      <span class="dot"></span>
+    <div class="hero-badge anim-up">
+      <span class="badge-dot"></span>
       <span data-es="Estudio creativo multidisciplinario" data-en="Multidisciplinary creative studio">Estudio creativo multidisciplinario</span>
     </div>
     <h1 class="hero-title anim-up-1">
-      <span data-es="Donde la creatividad" data-en="Where creativity">Donde la creatividad</span><br/>
-      <em data-es="encuentra su propósito." data-en="finds its purpose.">encuentra su propósito.</em>
+      <span data-es="Creatividad," data-en="Creativity,">Creatividad,</span><br/>
+      <span class="title-accent" data-es="Estrategia" data-en="Strategy">Estrategia</span>
+      <span data-es=" e " data-en=" and "> e </span>
+      <span class="title-accent" data-es="IA." data-en="AI.">IA.</span><br/>
+      <span class="title-dim" data-es="Todo bajo un mismo techo." data-en="All under one roof.">Todo bajo un mismo techo.</span>
     </h1>
-    <p class="hero-sub anim-up-2" data-es="Diseño que habla. Estrategia que mueve. Tecnología que transforma. Todo bajo un mismo techo." data-en="Design that speaks. Strategy that moves. Technology that transforms. All under one roof.">
-      Diseño que habla. Estrategia que mueve. Tecnología que transforma. Todo bajo un mismo techo.
+    <p class="hero-sub anim-up-2" data-es="No somos una agencia más. Somos un estudio multidimensional que combina diseño, estrategia digital e inteligencia artificial para llevar tu marca más lejos." data-en="We're not just another agency. We're a multidimensional studio combining design, digital strategy and artificial intelligence to take your brand further.">
+      No somos una agencia más. Somos un estudio multidimensional que combina diseño, estrategia digital e inteligencia artificial para llevar tu marca más lejos.
     </p>
     <div class="hero-ctas anim-up-3">
-      <a href="#branches" class="btn-primary" data-es="Explorar el estudio" data-en="Explore the studio">Explorar el estudio</a>
-      <a href="#contact"  class="btn-ghost"   data-es="Hablemos"            data-en="Let's talk">Hablemos</a>
+      <a href="#branches" class="btn-primary" data-es="Conocer el estudio" data-en="Explore the studio">Conocer el estudio</a>
+      <a href="#contact"  class="btn-outline" data-es="Hablemos" data-en="Let's talk">Hablemos</a>
     </div>
     <div class="hero-stats anim-up-4">
-      <div class="stat-item">
-        <div class="stat-n">3</div>
-        <div class="stat-l" data-es="Especialidades" data-en="Specialties">Especialidades</div>
+      <div class="hero-stat">
+        <div class="stat-num">3</div>
+        <div class="stat-label" data-es="Especialidades" data-en="Specialties">Especialidades</div>
       </div>
-      <div class="stat-div"></div>
-      <div class="stat-item">
-        <div class="stat-n">IA</div>
-        <div class="stat-l" data-es="Integrada" data-en="Integrated">Integrada</div>
+      <div class="hero-stat">
+        <div class="stat-num">IA</div>
+        <div class="stat-label" data-es="Integrada" data-en="Integrated">Integrada</div>
       </div>
-      <div class="stat-div"></div>
-      <div class="stat-item">
-        <div class="stat-n">360°</div>
-        <div class="stat-l" data-es="Visión creativa" data-en="Creative vision">Visión creativa</div>
+      <div class="hero-stat">
+        <div class="stat-num">360°</div>
+        <div class="stat-label" data-es="Visión creativa" data-en="Creative vision">Visión creativa</div>
       </div>
     </div>
-  </div>
-  <div class="hero-scroll">
-    <div class="scroll-line"></div>
-    <span data-es="scroll" data-en="scroll">scroll</span>
   </div>
 </section>
 
@@ -93,36 +89,44 @@
   <div class="container">
     <div class="about-grid">
       <div class="about-left reveal">
-        <div class="section-eyebrow" data-es="Sobre nosotros" data-en="About us">Sobre nosotros</div>
-        <h2 class="section-title" data-es="Pensamos en sistemas.<br/>Creamos con alma." data-en="We think in systems.<br/>We create with soul.">
-          Pensamos en sistemas.<br/><em>Creamos con alma.</em>
+        <span class="eyebrow" data-es="Sobre el estudio" data-en="About the studio">Sobre el estudio</span>
+        <h2 class="section-title">
+          <span data-es="Pensamos en sistemas." data-en="We think in systems.">Pensamos en sistemas.</span><br/>
+          <span class="title-accent" data-es="Creamos con alma." data-en="We create with soul.">Creamos con alma.</span>
         </h2>
-        <p class="about-text" data-es="Tuimagen Studio nace de la convicción de que el diseño, la estrategia y la tecnología no son mundos separados — son el mismo idioma hablado desde distintos ángulos." data-en="Tuimagen Studio was born from the conviction that design, strategy and technology are not separate worlds — they are the same language spoken from different angles.">
-          Tuimagen Studio nace de la convicción de que el diseño, la estrategia y la tecnología no son mundos separados — son el mismo idioma hablado desde distintos ángulos.
+        <p class="about-body" data-es="Tuimagen Studio nace de la convicción de que el <strong>diseño, la estrategia y la tecnología</strong> no son mundos separados — son el mismo idioma hablado desde distintos ángulos." data-en="Tuimagen Studio was born from the conviction that <strong>design, strategy and technology</strong> are not separate worlds — they are the same language spoken from different angles.">
+          Tuimagen Studio nace de la convicción de que el <strong>diseño, la estrategia y la tecnología</strong> no son mundos separados — son el mismo idioma hablado desde distintos ángulos.
         </p>
-        <p class="about-text" data-es="Somos un estudio multidimensional: construimos identidades visuales, diseñamos estrategias digitales y desarrollamos soluciones con inteligencia artificial para marcas que quieren ir más allá del estándar." data-en="We are a multidimensional studio: we build visual identities, design digital strategies and develop artificial intelligence solutions for brands that want to go beyond the standard.">
-          Somos un estudio multidimensional: construimos identidades visuales, diseñamos estrategias digitales y desarrollamos soluciones con inteligencia artificial para marcas que quieren ir más allá del estándar.
+        <p class="about-body" data-es="Somos un estudio multidimensional: construimos identidades visuales, diseñamos estrategias digitales y desarrollamos soluciones con IA para marcas que quieren ir más allá del estándar." data-en="We are a multidimensional studio: we build visual identities, design digital strategies and develop AI solutions for brands that want to go beyond the standard.">
+          Somos un estudio multidimensional: construimos identidades visuales, diseñamos estrategias digitales y desarrollamos soluciones con IA para marcas que quieren ir más allá del estándar.
         </p>
-        <div class="about-tags">
-          <span data-es="Autenticidad" data-en="Authenticity">Autenticidad</span>
-          <span data-es="Precisión" data-en="Precision">Precisión</span>
-          <span data-es="Innovación" data-en="Innovation">Innovación</span>
-          <span data-es="Propósito" data-en="Purpose">Propósito</span>
+        <div class="tags">
+          <span class="tag" data-es="Autenticidad" data-en="Authenticity">Autenticidad</span>
+          <span class="tag" data-es="Precisión" data-en="Precision">Precisión</span>
+          <span class="tag" data-es="Innovación" data-en="Innovation">Innovación</span>
+          <span class="tag" data-es="Propósito" data-en="Purpose">Propósito</span>
         </div>
       </div>
       <div class="about-right reveal">
         <div class="about-card">
-          <div class="about-card-icon">✦</div>
-          <div class="about-card-title" data-es="Arquitectura de ideas" data-en="Architecture of ideas">Arquitectura de ideas</div>
+          <div class="card-num">01</div>
+          <h3 data-es="Arquitectura de ideas" data-en="Architecture of ideas">Arquitectura de ideas</h3>
           <p data-es="Cada proyecto es un sistema de decisiones. Diseñamos desde la raíz para que todo tenga coherencia y vida propia." data-en="Every project is a system of decisions. We design from the root so everything has coherence and a life of its own.">
             Cada proyecto es un sistema de decisiones. Diseñamos desde la raíz para que todo tenga coherencia y vida propia.
           </p>
         </div>
-        <div class="about-card about-card-accent">
-          <div class="about-card-icon">◈</div>
-          <div class="about-card-title" data-es="Tecnología con humanidad" data-en="Technology with humanity">Tecnología con humanidad</div>
+        <div class="about-card about-card-glow">
+          <div class="card-num">02</div>
+          <h3 data-es="Tecnología con humanidad" data-en="Technology with humanity">Tecnología con humanidad</h3>
           <p data-es="Usamos IA como herramienta, no como fin. La inteligencia artificial amplifica lo humano — no lo reemplaza." data-en="We use AI as a tool, not as an end. Artificial intelligence amplifies the human — it doesn't replace it.">
             Usamos IA como herramienta, no como fin. La inteligencia artificial amplifica lo humano — no lo reemplaza.
+          </p>
+        </div>
+        <div class="about-card">
+          <div class="card-num">03</div>
+          <h3 data-es="Más allá del estándar" data-en="Beyond the standard">Más allá del estándar</h3>
+          <p data-es="No hacemos lo predecible. Buscamos la solución que sorprende, que dura, que comunica algo verdadero." data-en="We don't do the predictable. We seek solutions that surprise, that last, that communicate something true.">
+            No hacemos lo predecible. Buscamos la solución que sorprende, que dura, que comunica algo verdadero.
           </p>
         </div>
       </div>
@@ -134,20 +138,23 @@
 <section class="branches" id="branches">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-eyebrow" data-es="Nuestras ramas" data-en="Our branches">Nuestras ramas</div>
-      <h2 class="section-title" data-es="Tres disciplinas.<br/><em>Un solo estudio.</em>" data-en="Three disciplines.<br/><em>One studio.</em>">
-        Tres disciplinas.<br/><em>Un solo estudio.</em>
+      <span class="eyebrow" data-es="Nuestras ramas" data-en="Our branches">Nuestras ramas</span>
+      <h2 class="section-title">
+        <span data-es="Tres disciplinas." data-en="Three disciplines.">Tres disciplinas.</span><br/>
+        <span class="title-accent" data-es="Un solo estudio." data-en="One studio.">Un solo estudio.</span>
       </h2>
+      <p class="section-sub" data-es="Cada rama opera con su propia identidad y especialidad, pero comparten la misma filosofía: crear con propósito." data-en="Each branch operates with its own identity and specialty, but they share the same philosophy: create with purpose.">
+        Cada rama opera con su propia identidad y especialidad, pero comparten la misma filosofía: crear con propósito.
+      </p>
     </div>
     <div class="branches-grid">
-
       <div class="branch-card reveal">
         <div class="branch-num">01</div>
         <div class="branch-icon">◻</div>
-        <div class="branch-name">Tuimageneva</div>
-        <div class="branch-tag" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</div>
-        <p class="branch-desc" data-es="Identidad visual, branding, diseño editorial y comunicación gráfica. Creamos la cara visible de tu marca con precisión y carácter." data-en="Visual identity, branding, editorial design and graphic communication. We create the visible face of your brand with precision and character.">
-          Identidad visual, branding, diseño editorial y comunicación gráfica. Creamos la cara visible de tu marca con precisión y carácter.
+        <h3 class="branch-name">Tuimageneva</h3>
+        <span class="branch-tag" data-es="Diseño Gráfico" data-en="Graphic Design">Diseño Gráfico</span>
+        <p class="branch-desc" data-es="Identidad visual, branding y comunicación gráfica. Creamos la cara visible de tu marca con precisión y carácter." data-en="Visual identity, branding and graphic communication. We create the visible face of your brand with precision and character.">
+          Identidad visual, branding y comunicación gráfica. Creamos la cara visible de tu marca con precisión y carácter.
         </p>
         <ul class="branch-list">
           <li data-es="Identidad de marca" data-en="Brand identity">Identidad de marca</li>
@@ -157,13 +164,14 @@
         </ul>
       </div>
 
-      <div class="branch-card branch-card-featured reveal">
+      <div class="branch-card branch-featured reveal">
+        <div class="featured-badge" data-es="Principal" data-en="Main">Principal</div>
         <div class="branch-num">02</div>
         <div class="branch-icon">◈</div>
-        <div class="branch-name">Tuimagenstudio</div>
-        <div class="branch-tag" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</div>
-        <p class="branch-desc" data-es="Estrategia de contenidos, gestión de redes sociales, publicidad digital y e-commerce. Conectamos tu marca con las personas correctas." data-en="Content strategy, social media management, digital advertising and e-commerce. We connect your brand with the right people.">
-          Estrategia de contenidos, gestión de redes sociales, publicidad digital y e-commerce. Conectamos tu marca con las personas correctas.
+        <h3 class="branch-name">Tuimagenstudio</h3>
+        <span class="branch-tag" data-es="Marketing Digital" data-en="Digital Marketing">Marketing Digital</span>
+        <p class="branch-desc" data-es="Estrategia de contenidos, redes sociales, publicidad digital y e-commerce. Conectamos tu marca con las personas correctas." data-en="Content strategy, social media, digital advertising and e-commerce. We connect your brand with the right people.">
+          Estrategia de contenidos, redes sociales, publicidad digital y e-commerce. Conectamos tu marca con las personas correctas.
         </p>
         <ul class="branch-list">
           <li data-es="Estrategia de contenido" data-en="Content strategy">Estrategia de contenido</li>
@@ -171,16 +179,15 @@
           <li data-es="Publicidad digital" data-en="Digital advertising">Publicidad digital</li>
           <li data-es="E-commerce" data-en="E-commerce">E-commerce</li>
         </ul>
-        <div class="branch-featured-tag" data-es="Principal" data-en="Main">Principal</div>
       </div>
 
       <div class="branch-card reveal">
         <div class="branch-num">03</div>
         <div class="branch-icon">✦</div>
-        <div class="branch-name">TuimagenIA</div>
-        <div class="branch-tag" data-es="Consultoría IA" data-en="AI Consulting">Consultoría IA</div>
-        <p class="branch-desc" data-es="Consultoría en inteligencia artificial, implementación de soluciones IA y desarrollo de herramientas personalizadas para negocios." data-en="Artificial intelligence consulting, AI solution implementation and development of custom tools for businesses.">
-          Consultoría en inteligencia artificial, implementación de soluciones IA y desarrollo de herramientas personalizadas para negocios.
+        <h3 class="branch-name">TuimagenIA</h3>
+        <span class="branch-tag" data-es="Consultoría IA" data-en="AI Consulting">Consultoría IA</span>
+        <p class="branch-desc" data-es="Consultoría en inteligencia artificial, automatización y desarrollo de herramientas personalizadas con IA para negocios." data-en="Artificial intelligence consulting, automation and development of custom AI tools for businesses.">
+          Consultoría en inteligencia artificial, automatización y desarrollo de herramientas personalizadas con IA para negocios.
         </p>
         <ul class="branch-list">
           <li data-es="Consultoría IA" data-en="AI consulting">Consultoría IA</li>
@@ -189,7 +196,6 @@
           <li data-es="Capacitación y formación" data-en="Training & education">Capacitación y formación</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
@@ -197,27 +203,50 @@
 <!-- APP PROMO -->
 <section class="app-promo" id="app">
   <div class="container">
-    <div class="app-promo-inner reveal">
-      <div class="app-promo-left">
-        <div class="section-eyebrow" data-es="Producto destacado" data-en="Featured product">Producto destacado</div>
-        <h2 class="section-title" style="font-size:clamp(32px,5vw,52px)">
-          <span data-es="TU FITNESS" data-en="TU FITNESS">TU FITNESS</span><br/>
-          <em data-es="Coach digital con IA." data-en="AI-powered digital coach.">Coach digital con IA.</em>
+    <div class="app-grid reveal">
+      <div class="app-left">
+        <span class="eyebrow" data-es="Producto destacado" data-en="Featured product">Producto destacado</span>
+        <h2 class="section-title">
+          TU FITNESS<br/>
+          <span class="title-accent" data-es="Coach digital con IA." data-en="AI digital coach.">Coach digital con IA.</span>
         </h2>
-        <p style="color:var(--fg-muted);line-height:1.7;margin:20px 0 32px;max-width:480px" data-es="La primera app de fitness que te analiza de verdad. Plan de dieta, rutina personalizada y coach IA en tiempo real — desarrollada por TuimagenIA." data-en="The first fitness app that truly analyzes you. Diet plan, personalized routine and real-time AI coach — developed by TuimagenIA.">
-          La primera app de fitness que te analiza de verdad. Plan de dieta, rutina personalizada y coach IA en tiempo real — desarrollada por TuimagenIA.
+        <p class="promo-body" data-es="La primera app de fitness que te analiza de verdad. Plan de dieta personalizado, rutina según tu objetivo y <strong>coach IA en tiempo real</strong> — desarrollada por TuimagenIA." data-en="The first fitness app that truly analyzes you. Personalized diet plan, routine based on your goal and <strong>real-time AI coach</strong> — developed by TuimagenIA.">
+          La primera app de fitness que te analiza de verdad. Plan de dieta personalizado, rutina según tu objetivo y <strong>coach IA en tiempo real</strong> — desarrollada por TuimagenIA.
         </p>
-        <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-primary" data-es="Probar gratis →" data-en="Try for free →">Probar gratis →</a>
+        <div class="app-features">
+          <div class="app-feature">
+            <span class="feature-icon">◈</span>
+            <span data-es="Plan de dieta con macros calculados" data-en="Diet plan with calculated macros">Plan de dieta con macros calculados</span>
+          </div>
+          <div class="app-feature">
+            <span class="feature-icon">◈</span>
+            <span data-es="Rutina personalizada según objetivo" data-en="Personalized routine based on goal">Rutina personalizada según objetivo</span>
+          </div>
+          <div class="app-feature">
+            <span class="feature-icon">◈</span>
+            <span data-es="Coach IA con Gemini en tiempo real" data-en="AI coach with Gemini in real time">Coach IA con Gemini en tiempo real</span>
+          </div>
+          <div class="app-feature">
+            <span class="feature-icon">◈</span>
+            <span data-es="Seguimiento de progreso y rewards" data-en="Progress tracking and rewards">Seguimiento de progreso y rewards</span>
+          </div>
+        </div>
+        <a href="https://app.tuimagenstudios.com" target="_blank" class="btn-primary" style="margin-top:36px" data-es="Probar gratis →" data-en="Try for free →">Probar gratis →</a>
       </div>
-      <div class="app-promo-right">
-        <div class="app-mockup">
-          <div class="mockup-screen">
-            <div class="mockup-bar"></div>
-            <div class="mockup-content">
-              <div class="mockup-tag">TU FITNESS</div>
-              <div class="mockup-title" data-es="Tu coach digital." data-en="Your digital coach.">Tu coach digital.</div>
-              <div class="mockup-sub" data-es="Personal de verdad." data-en="Truly personal.">Personal de verdad.</div>
-              <div class="mockup-btn" data-es="Empezar mi plan →" data-en="Start my plan →">Empezar mi plan →</div>
+      <div class="app-right">
+        <div class="phone-mockup">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-content">
+              <div class="phone-eyebrow">TU FITNESS</div>
+              <div class="phone-title" data-es="Tu coach digital." data-en="Your digital coach.">Tu coach digital.</div>
+              <div class="phone-sub" data-es="Personal de verdad." data-en="Truly personal.">Personal de verdad.</div>
+              <div class="phone-btn" data-es="Empezar mi plan →" data-en="Start my plan →">Empezar mi plan →</div>
+              <div class="phone-stats">
+                <div class="phone-stat"><div class="ps-val">72.5</div><div class="ps-lbl">kg</div></div>
+                <div class="phone-stat"><div class="ps-val">42%</div><div class="ps-lbl">progreso</div></div>
+                <div class="phone-stat"><div class="ps-val">7</div><div class="ps-lbl">días</div></div>
+              </div>
             </div>
           </div>
         </div>
@@ -229,43 +258,49 @@
 <!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container">
-    <div class="contact-inner">
+    <div class="contact-grid">
       <div class="contact-left reveal">
-        <div class="section-eyebrow" data-es="Contacto" data-en="Contact">Contacto</div>
-        <h2 class="section-title" data-es="¿Tenés un proyecto<br/><em>en mente?</em>" data-en="Do you have a project<br/><em>in mind?</em>">
-          ¿Tenés un proyecto<br/><em>en mente?</em>
+        <span class="eyebrow" data-es="Contacto" data-en="Contact">Contacto</span>
+        <h2 class="section-title">
+          <span data-es="¿Tenés un proyecto" data-en="Have a project">¿Tenés un proyecto</span><br/>
+          <span class="title-accent" data-es="en mente?" data-en="in mind?">en mente?</span>
         </h2>
-        <p style="color:var(--fg-muted);line-height:1.7;margin:20px 0 32px" data-es="Contanos qué necesitás. No hay proyectos pequeños — hay ideas que todavía no encontraron su forma." data-en="Tell us what you need. There are no small projects — there are ideas that haven't found their shape yet.">
+        <p class="contact-body" data-es="Contanos qué necesitás. No hay proyectos pequeños — hay ideas que todavía no encontraron su forma." data-en="Tell us what you need. There are no small projects — there are ideas that haven't found their shape yet.">
           Contanos qué necesitás. No hay proyectos pequeños — hay ideas que todavía no encontraron su forma.
         </p>
         <div class="contact-links">
           <a href="mailto:hola@tuimagenstudios.com" class="contact-link">
-            <span class="contact-link-icon">✉</span>
+            <span class="cl-icon">✉</span>
             <span>hola@tuimagenstudios.com</span>
           </a>
           <a href="https://tuimagenstudios.github.io" target="_blank" class="contact-link">
-            <span class="contact-link-icon">◻</span>
+            <span class="cl-icon">◻</span>
             <span data-es="Ver portfolio" data-en="View portfolio">Ver portfolio</span>
+          </a>
+          <a href="https://app.tuimagenstudios.com" target="_blank" class="contact-link">
+            <span class="cl-icon">◈</span>
+            <span data-es="Probar TU FITNESS" data-en="Try TU FITNESS">Probar TU FITNESS</span>
           </a>
         </div>
       </div>
       <div class="contact-right reveal">
-        <form class="contact-form" onsubmit="handleForm(event)">
+        <form class="form" onsubmit="handleForm(event)">
           <div class="form-group">
-            <label data-es="Nombre" data-en="Name">Nombre</label>
-            <input type="text" class="form-field" required placeholder="Tu nombre" data-placeholder-es="Tu nombre" data-placeholder-en="Your name"/>
+            <label class="form-label" data-es="Nombre" data-en="Name">Nombre</label>
+            <input type="text" class="form-input" required placeholder="Tu nombre" data-ph-es="Tu nombre" data-ph-en="Your name"/>
           </div>
           <div class="form-group">
-            <label data-es="Email" data-en="Email">Email</label>
-            <input type="email" class="form-field" required placeholder="tu@email.com"/>
+            <label class="form-label" data-es="Email" data-en="Email">Email</label>
+            <input type="email" class="form-input" required placeholder="tu@email.com"/>
           </div>
           <div class="form-group">
-            <label data-es="Mensaje" data-en="Message">Mensaje</label>
-            <textarea class="form-field" rows="4" required placeholder="Contanos sobre tu proyecto..." data-placeholder-es="Contanos sobre tu proyecto..." data-placeholder-en="Tell us about your project..."></textarea>
+            <label class="form-label" data-es="¿En qué podemos ayudarte?" data-en="How can we help?">¿En qué podemos ayudarte?</label>
+            <textarea class="form-input" rows="4" required placeholder="Contanos tu proyecto..." data-ph-es="Contanos tu proyecto..." data-ph-en="Tell us about your project..."></textarea>
           </div>
           <button type="submit" class="btn-primary btn-full" data-es="Enviar mensaje" data-en="Send message">Enviar mensaje</button>
           <div class="form-success" id="formSuccess">
-            <span>✓</span> <span data-es="¡Mensaje enviado! Te respondemos pronto." data-en="Message sent! We'll get back to you soon.">¡Mensaje enviado! Te respondemos pronto.</span>
+            <span>✓</span>
+            <span data-es="¡Mensaje enviado! Te respondemos pronto." data-en="Sent! We'll be in touch soon.">¡Mensaje enviado! Te respondemos pronto.</span>
           </div>
         </form>
       </div>
@@ -276,15 +311,12 @@
 <!-- FOOTER -->
 <footer class="footer">
   <div class="container">
-    <div class="footer-inner">
+    <div class="footer-top">
       <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:12px">
-          <div class="nav-logo-mark">T</div>
-          <span>TUIMAGEN<em>STUDIO</em></span>
-        </div>
-        <p class="footer-tagline" data-es="Creatividad · Estrategia · IA" data-en="Creativity · Strategy · AI">Creatividad · Estrategia · AI</p>
+        <img src="logo.png" alt="Tuimagen Studio" style="height:60px; filter:brightness(0) invert(1); margin-bottom:12px"/>
+        <p class="footer-tagline" data-es="Creatividad · Estrategia · IA" data-en="Creativity · Strategy · AI">Creatividad · Estrategia · IA</p>
       </div>
-      <div class="footer-links">
+      <div class="footer-cols">
         <div class="footer-col">
           <div class="footer-col-title" data-es="Ramas" data-en="Branches">Ramas</div>
           <a href="#branches">Tuimageneva</a>
