@@ -332,10 +332,22 @@
           <a href="https://app.tuimagenstudios.com" target="_blank">TU FITNESS</a>
           <a href="https://portfolio.tuimagenstudios.com" target="_blank" data-es="Portfolio" data-en="Portfolio">Portfolio</a>
         </div>
-        <div class="footer-col">
-          <div class="footer-col-title" data-es="Contacto" data-en="Contact">Contacto</div>
-          <a href="mailto:hola@tuimagenstudios.com">hola@tuimagenstudios.com</a>
-        </div>
+        <form class="form" action="https://formspree.io/f/xjgjpbbo" method="POST">
+
+          <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" name="nombre" class="form-input" required placeholder="Tu nombre"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" required placeholder="tu@email.com"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">¿En qué podemos ayudarte?</label>
+            <textarea name="mensaje" class="form-input" rows="4" required placeholder="Contanos tu proyecto..."></textarea>
+          </div>
       </div>
     </div>
     <div class="footer-bottom">
