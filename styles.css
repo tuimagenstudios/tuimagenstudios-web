@@ -31,8 +31,8 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--fg);-webkit-f
 .nav.scrolled{border-bottom-color:var(--border)}
 @media(max-width:768px){.nav{padding:0 24px}}
 .nav-logo{display:flex;align-items:center;text-decoration:none}
-.nav-logo-img{height:44px;filter:brightness(0) invert(1);transition:filter .2s}
-.nav-logo-img:hover{filter:brightness(0) saturate(100%) invert(76%) sepia(49%) saturate(500%) hue-rotate(130deg)}
+.nav-logo-img{height:52px;transition:opacity .2s}
+.nav-logo-img:hover{opacity:.8}
 .nav-links{display:flex;gap:36px}
 .nav-link{font-family:var(--font);font-size:14px;font-weight:500;color:var(--fg-muted);text-decoration:none;letter-spacing:.02em;transition:color .2s}
 .nav-link:hover{color:var(--fg)}
