@@ -170,6 +170,8 @@ body{font-family:var(--font-body);background:var(--bg);color:var(--fg);-webkit-f
 .form-input::placeholder{color:var(--fg-dim)}
 .form-success{display:none;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:10px;background:var(--accent-soft);border:1px solid rgba(0,212,180,.2);color:var(--accent);font-size:14px;font-weight:500}
 .form-success.show{display:flex}
+.form-error{display:none;align-items:center;justify-content:center;gap:10px;padding:14px;border-radius:10px;background:rgba(255,80,80,.08);border:1px solid rgba(255,80,80,.2);color:#ff6b6b;font-size:14px;font-weight:500}
+.form-error.show{display:flex}
 
 /* FOOTER */
 .footer{padding:60px 0 32px;border-top:1px solid var(--border)}

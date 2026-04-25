@@ -47,12 +47,41 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
 
 // ── Contact form ──
-function handleForm(e) {
+async function handleForm(e) {
   e.preventDefault()
+  const form = e.target
+  const btn = document.getElementById('formBtn')
   const success = document.getElementById('formSuccess')
-  success.classList.add('show')
-  e.target.reset()
-  setTimeout(() => success.classList.remove('show'), 4000)
+  const error = document.getElementById('formError')
+  const labelSend = currentLang === 'es' ? 'Enviar mensaje' : 'Send message'
+  const labelSending = currentLang === 'es' ? 'Enviando...' : 'Sending...'
+
+  btn.disabled = true
+  btn.textContent = labelSending
+
+  try {
+    const res = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+
+    if (res.ok) {
+      success.classList.add('show')
+      error.classList.remove('show')
+      form.reset()
+      setTimeout(() => success.classList.remove('show'), 5000)
+    } else {
+      throw new Error()
+    }
+  } catch {
+    error.classList.add('show')
+    success.classList.remove('show')
+    setTimeout(() => error.classList.remove('show'), 5000)
+  } finally {
+    btn.disabled = false
+    btn.textContent = labelSend
+  }
 }
 
 // ── Active nav link on scroll ──
