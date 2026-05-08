@@ -1675,6 +1675,180 @@ h3 {
   min-height: 240px;
 }
 
+.bot-visual {
+  position: relative;
+  min-height: 430px;
+  border: 1px solid rgba(0, 224, 255, 0.22);
+  background:
+    radial-gradient(circle at 48% 34%, rgba(0, 224, 255, 0.2), transparent 26%),
+    linear-gradient(160deg, rgba(0, 224, 255, 0.1), transparent 42%),
+    rgba(9, 22, 52, 0.56);
+  box-shadow: var(--shadow), inset 0 0 70px rgba(0, 224, 255, 0.06);
+  overflow: hidden;
+}
+
+.bot-visual::before {
+  content: "";
+  position: absolute;
+  inset: 38px;
+  border: 1px solid rgba(0, 224, 255, 0.12);
+  background:
+    radial-gradient(circle, rgba(0, 224, 255, 0.13) 1px, transparent 2px);
+  background-size: 32px 32px;
+  opacity: 0.8;
+}
+
+.bot-visual-label {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 2;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.bot-chat-map {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bot-bubble {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  max-width: 170px;
+  min-width: 108px;
+  min-height: 54px;
+  padding: 12px 16px;
+  border: 1px solid rgba(0, 224, 255, 0.28);
+  background: rgba(5, 9, 26, 0.78);
+  box-shadow: 0 0 30px rgba(0, 224, 255, 0.12), inset 0 0 24px rgba(0, 224, 255, 0.06);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.bot-user {
+  left: 10%;
+  top: 24%;
+  border-radius: 18px 18px 18px 4px;
+}
+
+.bot-core {
+  left: 50%;
+  top: 34%;
+  transform: translateX(-50%);
+  min-width: 122px;
+  min-height: 74px;
+  color: #03101f;
+  background: var(--cyan);
+  border-radius: 18px;
+  box-shadow: 0 0 70px rgba(0, 224, 255, 0.34);
+}
+
+.bot-answer {
+  right: 10%;
+  top: 24%;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.bot-action {
+  right: 14%;
+  bottom: 18%;
+  border-radius: 18px 18px 4px 18px;
+}
+
+.bot-human {
+  left: 12%;
+  bottom: 18%;
+  border-radius: 18px 18px 18px 4px;
+}
+
+.bot-route {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 224, 255, 0.9), transparent);
+  box-shadow: 0 0 18px rgba(0, 224, 255, 0.26);
+  transform-origin: center;
+}
+
+.bot-route-a {
+  left: 29%;
+  right: 55%;
+  top: 38%;
+  transform: rotate(14deg);
+}
+
+.bot-route-b {
+  left: 55%;
+  right: 29%;
+  top: 38%;
+  transform: rotate(-14deg);
+}
+
+.bot-route-c {
+  left: 49%;
+  right: 31%;
+  top: 58%;
+  transform: rotate(38deg);
+}
+
+.bot-scope-grid,
+.bot-demo-grid,
+.bot-process {
+  display: grid;
+  gap: 18px;
+}
+
+.bot-scope-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.bot-demo-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.bot-process {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.bot-scope-card {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(145deg, rgba(0, 224, 255, 0.08), transparent 48%),
+    rgba(9, 22, 52, 0.54);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.bot-scope-card-limit {
+  border-color: rgba(0, 224, 255, 0.34);
+}
+
+.bot-scope-card span,
+.bot-demo-card span {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.bot-scope-card p,
+.bot-demo-card p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.bot-process .portfolio-card,
+.bot-demo-card {
+  min-height: 220px;
+}
+
 .service-section {
   padding: 104px 0;
 }
@@ -1744,12 +1918,16 @@ h3 {
   .process-steps,
   .faq-grid,
   .automation-rules,
-  .automation-process {
+  .automation-process,
+  .bot-scope-grid,
+  .bot-demo-grid,
+  .bot-process {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .service-visual-panel,
-  .automation-visual {
+  .automation-visual,
+  .bot-visual {
     min-height: 340px;
   }
 }
@@ -1765,7 +1943,10 @@ h3 {
   .process-steps,
   .faq-grid,
   .automation-rules,
-  .automation-process {
+  .automation-process,
+  .bot-scope-grid,
+  .bot-demo-grid,
+  .bot-process {
     grid-template-columns: 1fr;
   }
 
@@ -1778,10 +1959,21 @@ h3 {
     min-height: 300px;
   }
 
+  .bot-visual {
+    min-height: 320px;
+  }
+
   .flow-node {
     min-width: 78px;
     min-height: 48px;
     font-size: 0.66rem;
+  }
+
+  .bot-bubble {
+    min-width: 86px;
+    min-height: 46px;
+    padding: 10px;
+    font-size: 0.62rem;
   }
 
   .service-section,
