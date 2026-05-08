@@ -698,6 +698,31 @@ h3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
+.service-paths {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.service-paths a {
+  border: 1px solid var(--line);
+  background: rgba(9, 22, 52, 0.58);
+  color: var(--muted);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+
+.service-paths a:hover {
+  border-color: var(--cyan-line);
+  background: rgba(0, 224, 255, 0.08);
+  color: var(--text);
+}
+
 .depth-card,
 .portfolio-card,
 .portfolio-summary,
