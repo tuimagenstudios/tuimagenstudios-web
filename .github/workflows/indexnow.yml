@@ -1,0 +1,144 @@
+name: Notify IndexNow
+
+on:
+  workflow_run:
+    workflows: ["Deploy tuimagenstudios.com"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  notify:
+    name: Submit sitemap URLs to IndexNow
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    env:
+      INDEXNOW_ENDPOINT: https://api.indexnow.org/indexnow
+      INDEXNOW_HOST: tuimagenstudios.com
+      INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate IndexNow secret
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ -z "${INDEXNOW_KEY:-}" ]; then
+            echo "::error::Missing required GitHub Actions secret INDEXNOW_KEY."
+            exit 1
+          fi
+          echo "IndexNow secret is configured."
+
+      - name: Extract URLs from sitemap
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import sys
+          import xml.etree.ElementTree as ET
+
+          host = "tuimagenstudios.com"
+          sitemap = Path("sitemap.xml")
+          if not sitemap.exists():
+              print("::error::sitemap.xml was not found in the repository root.")
+              sys.exit(1)
+
+          try:
+              root = ET.parse(sitemap).getroot()
+          except ET.ParseError as exc:
+              print(f"::error::sitemap.xml is not valid XML: {exc}")
+              sys.exit(1)
+
+          namespace = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          urls = [node.text.strip() for node in root.findall(".//sm:loc", namespace) if node.text and node.text.strip()]
+
+          if not urls:
+              print("::error::No URLs found in sitemap.xml.")
+              sys.exit(1)
+
+          invalid = [url for url in urls if not url.startswith(f"https://{host}/")]
+          if invalid:
+              print("::error::sitemap.xml contains URLs outside the configured host.")
+              for url in invalid:
+                  print(f"Invalid sitemap URL: {url}")
+              sys.exit(1)
+
+          Path("indexnow-urls.json").write_text(json.dumps(urls, ensure_ascii=False), encoding="utf-8")
+          print(f"URLs detected: {len(urls)}")
+          PY
+
+      - name: Verify public key file
+        shell: bash
+        run: |
+          set -euo pipefail
+          key_location="https://${INDEXNOW_HOST}/${INDEXNOW_KEY}.txt"
+          key_file="$(mktemp)"
+          http_status="$(curl -sS -o "$key_file" -w "%{http_code}" "$key_location")"
+          if [ "$http_status" != "200" ]; then
+            echo "::error::IndexNow public key file is not reachable. Expected a 200 response at the computed key location."
+            exit 1
+          fi
+          if [ "$(cat "$key_file")" != "$INDEXNOW_KEY" ]; then
+            echo "::error::IndexNow public key file content does not match the configured secret."
+            exit 1
+          fi
+          rm -f "$key_file"
+          echo "IndexNow public key file verified."
+
+      - name: Submit URLs to IndexNow
+        shell: bash
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          import os
+
+          urls = json.loads(Path("indexnow-urls.json").read_text(encoding="utf-8"))
+          payload = {
+              "host": os.environ["INDEXNOW_HOST"],
+              "key": os.environ["INDEXNOW_KEY"],
+              "keyLocation": f"https://{os.environ['INDEXNOW_HOST']}/{os.environ['INDEXNOW_KEY']}.txt",
+              "urlList": urls,
+          }
+          Path("indexnow-payload.json").write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+          print(f"Endpoint: {os.environ['INDEXNOW_ENDPOINT']}")
+          print(f"URLs to submit: {len(urls)}")
+          PY
+
+          response_file="$(mktemp)"
+          http_status="$(curl -sS -o "$response_file" -w "%{http_code}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary "@indexnow-payload.json" \
+            "$INDEXNOW_ENDPOINT")"
+
+          echo "HTTP status: $http_status"
+          python - "$response_file" <<'PY'
+          from pathlib import Path
+          import os
+          import sys
+
+          response = Path(sys.argv[1]).read_text(encoding="utf-8", errors="replace").strip()
+          key = os.environ.get("INDEXNOW_KEY", "")
+          if key:
+              response = response.replace(key, "[redacted]")
+          if len(response) > 500:
+              response = response[:500] + "..."
+          print("Response summary:", response if response else "(empty)")
+          PY
+
+          if [ "$http_status" -lt 200 ] || [ "$http_status" -ge 300 ]; then
+            echo "::error::IndexNow submission failed."
+            exit 1
+          fi
+
+          rm -f "$response_file" indexnow-payload.json indexnow-urls.json
