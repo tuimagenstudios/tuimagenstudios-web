@@ -1525,6 +1525,156 @@ h3 {
   transform: rotate(-18deg);
 }
 
+.automation-visual {
+  position: relative;
+  min-height: 430px;
+  border: 1px solid rgba(0, 224, 255, 0.2);
+  background:
+    radial-gradient(circle at 50% 44%, rgba(0, 224, 255, 0.18), transparent 28%),
+    linear-gradient(135deg, rgba(0, 224, 255, 0.08), transparent 42%),
+    rgba(9, 22, 52, 0.54);
+  box-shadow: var(--shadow), inset 0 0 80px rgba(0, 224, 255, 0.06);
+  overflow: hidden;
+}
+
+.automation-visual::before {
+  content: "";
+  position: absolute;
+  inset: 36px;
+  border: 1px solid rgba(0, 224, 255, 0.14);
+  background:
+    linear-gradient(rgba(0, 224, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 224, 255, 0.04) 1px, transparent 1px);
+  background-size: 42px 42px;
+  transform: perspective(900px) rotateX(58deg) rotateZ(0deg);
+}
+
+.automation-visual-label {
+  position: absolute;
+  top: 22px;
+  left: 24px;
+  z-index: 2;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.automation-system {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.flow-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  min-width: 92px;
+  min-height: 54px;
+  padding: 12px;
+  border: 1px solid rgba(0, 224, 255, 0.36);
+  background: rgba(5, 9, 26, 0.72);
+  box-shadow: 0 0 34px rgba(0, 224, 255, 0.13), inset 0 0 28px rgba(0, 224, 255, 0.08);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.flow-node-input {
+  left: 10%;
+  top: 46%;
+}
+
+.flow-node-ai {
+  left: 50%;
+  top: 36%;
+  min-width: 118px;
+  min-height: 82px;
+  transform: translateX(-50%);
+  color: #03101f;
+  background: var(--cyan);
+  box-shadow: 0 0 70px rgba(0, 224, 255, 0.34);
+}
+
+.flow-node-output {
+  right: 10%;
+  top: 46%;
+}
+
+.flow-node-review {
+  left: 50%;
+  bottom: 16%;
+  transform: translateX(-50%);
+}
+
+.process-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 224, 255, 0.9), transparent);
+  box-shadow: 0 0 18px rgba(0, 224, 255, 0.3);
+  transform-origin: center;
+}
+
+.process-line-a {
+  left: 25%;
+  right: 56%;
+  top: 52%;
+  transform: rotate(-15deg);
+}
+
+.process-line-b {
+  left: 56%;
+  right: 25%;
+  top: 52%;
+  transform: rotate(15deg);
+}
+
+.process-line-c {
+  left: 43%;
+  right: 43%;
+  top: 60%;
+  transform: rotate(90deg);
+}
+
+.automation-rules {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.automation-rule {
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(0, 224, 255, 0.08), transparent 42%),
+    rgba(9, 22, 52, 0.54);
+  box-shadow: var(--shadow);
+  padding: 28px;
+}
+
+.automation-rule span {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+}
+
+.automation-rule p {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.automation-process {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.automation-process .portfolio-card {
+  min-height: 240px;
+}
+
 .service-section {
   padding: 104px 0;
 }
@@ -1592,11 +1742,14 @@ h3 {
   .service-hero-grid,
   .service-list-grid,
   .process-steps,
-  .faq-grid {
+  .faq-grid,
+  .automation-rules,
+  .automation-process {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .service-visual-panel {
+  .service-visual-panel,
+  .automation-visual {
     min-height: 340px;
   }
 }
@@ -1610,13 +1763,25 @@ h3 {
   .service-hero-grid,
   .service-list-grid,
   .process-steps,
-  .faq-grid {
+  .faq-grid,
+  .automation-rules,
+  .automation-process {
     grid-template-columns: 1fr;
   }
 
   .service-visual-panel {
     min-height: 240px;
     transform: perspective(900px) rotateX(52deg) rotateZ(35deg);
+  }
+
+  .automation-visual {
+    min-height: 300px;
+  }
+
+  .flow-node {
+    min-width: 78px;
+    min-height: 48px;
+    font-size: 0.66rem;
   }
 
   .service-section,
