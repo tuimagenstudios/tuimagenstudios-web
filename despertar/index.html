@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+
+  <title>Despertar Digital | Tuimagen Studios</title>
+  <meta name="description" content="Despertar Digital es una guía gratuita en 3 actos para emprendedoras hispanas que quieren salir del modo invisible y empezar a mostrarse con claridad." />
+  <link rel="canonical" href="https://tuimagenstudios.com/despertar/" />
+
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Tuimagen Studios" />
+  <meta property="og:title" content="Despertar Digital | Tuimagen Studios" />
+  <meta property="og:description" content="Una guía gratuita en 3 actos para emprendedoras que quieren existir con claridad en digital." />
+  <meta property="og:url" content="https://tuimagenstudios.com/despertar/" />
+  <meta property="og:image" content="https://tuimagenstudios.com/assets/brand/og-tuimagenstudios.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Despertar Digital de Tuimagen Studios" />
+  <meta property="og:locale" content="es_ES" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Despertar Digital | Tuimagen Studios" />
+  <meta name="twitter:description" content="Una guía gratuita en 3 actos para emprendedoras que quieren existir con claridad en digital." />
+  <meta name="twitter:image" content="https://tuimagenstudios.com/assets/brand/og-tuimagenstudios.jpg" />
+
+  <link rel="icon" type="image/svg+xml" href="../assets/brand/favicon.svg" />
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="../assets/brand/favicon-32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/brand/apple-touch-icon.png" />
+  <meta name="theme-color" content="#05091a" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" href="../assets/brand/logo-tuimagenstudios-neon.webp" as="image" type="image/webp" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://tuimagenstudios.com/#organization",
+        "name": "Tuimagen Studios",
+        "alternateName": "TUIMAGENSTUDIOS",
+        "url": "https://tuimagenstudios.com/",
+        "logo": "https://tuimagenstudios.com/assets/brand/logo-tuimagenstudios-neon.png",
+        "image": "https://tuimagenstudios.com/assets/brand/og-tuimagenstudios.jpg",
+        "email": "tuimagenstudio@gmail.com",
+        "telephone": "+542281375390",
+        "sameAs": [
+          "https://portfolio.tuimagenstudios.com/"
+        ]
+      },
+      {
+        "@type": "Article",
+        "@id": "https://tuimagenstudios.com/despertar/#article",
+        "headline": "Despertar Digital",
+        "description": "Una guía gratuita en 3 actos para emprendedoras hispanas que quieren salir del modo invisible y empezar a mostrarse con claridad.",
+        "image": "https://tuimagenstudios.com/assets/brand/og-tuimagenstudios.jpg",
+        "author": {
+          "@id": "https://tuimagenstudios.com/#organization"
+        },
+        "publisher": {
+          "@id": "https://tuimagenstudios.com/#organization"
+        },
+        "mainEntityOfPage": "https://tuimagenstudios.com/despertar/",
+        "inLanguage": "es"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://tuimagenstudios.com/despertar/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Inicio",
+            "item": "https://tuimagenstudios.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Despertar Digital",
+            "item": "https://tuimagenstudios.com/despertar/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #05091a;
+      --bg-deep: #020512;
+      --panel: rgba(9, 22, 52, 0.74);
+      --panel-strong: rgba(14, 33, 74, 0.9);
+      --cyan: #00e0ff;
+      --violet: #a855f7;
+      --green: #00ff88;
+      --text: #f2f8ff;
+      --muted: #a7b5d2;
+      --dim: #6d7f9f;
+      --line: rgba(164, 197, 231, 0.18);
+      --cyan-line: rgba(0, 224, 255, 0.34);
+      --violet-line: rgba(168, 85, 247, 0.48);
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.44);
+      --font-display: Arial, Helvetica, sans-serif;
+      --font-body: 'Manrope', system-ui, sans-serif;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--bg);
+    }
+
+    body {
+      min-width: 320px;
+      max-width: 100vw;
+      margin: 0;
+      background:
+        radial-gradient(circle at 17% 16%, rgba(0, 224, 255, 0.16), transparent 30%),
+        radial-gradient(circle at 79% 12%, rgba(168, 85, 247, 0.18), transparent 28%),
+        linear-gradient(180deg, #05091a 0%, #070d24 54%, #020512 100%);
+      color: var(--text);
+      font-family: var(--font-body);
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(rgba(0, 224, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 224, 255, 0.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, black, transparent 82%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0, 224, 255, 0.06), transparent 22%, transparent 78%, rgba(168, 85, 247, 0.06)),
+        linear-gradient(180deg, transparent, rgba(2, 5, 18, 0.95) 86%);
+      pointer-events: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 200;
+      transform: translateY(-140%);
+      padding: 10px 14px;
+      background: var(--cyan);
+      color: #03101f;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .container {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 0 auto;
+    }
+
+    .cursor-glow {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 90;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0, 224, 255, 0.2), rgba(0, 224, 255, 0.06) 34%, transparent 70%);
+      opacity: 0;
+      pointer-events: none;
+      transform: translate3d(-50%, -50%, 0);
+      transition: opacity 180ms ease;
+      mix-blend-mode: screen;
+    }
+
+    .cursor-glow.is-visible {
+      opacity: 1;
+    }
+
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      border-bottom: 1px solid transparent;
+      background: rgba(5, 9, 26, 0.68);
+      backdrop-filter: blur(18px);
+      transition: background 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+    }
+
+    .site-header.is-scrolled {
+      border-color: var(--line);
+      background: rgba(5, 9, 26, 0.92);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.24);
+    }
+
+    .nav-shell {
+      width: min(1180px, calc(100vw - 40px));
+      min-height: 78px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      min-width: max-content;
+      text-decoration: none;
+    }
+
+    .brand picture,
+    .brand img {
+      width: 44px;
+      height: 44px;
+      flex: 0 0 auto;
+    }
+
+    .brand img {
+      object-fit: cover;
+      border: 1px solid var(--cyan-line);
+      background: var(--bg);
+      box-shadow: 0 0 22px rgba(0, 224, 255, 0.22);
+    }
+
+    .brand > span {
+      color: var(--text);
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand > span span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-weight: 700;
+      text-decoration: none;
+      transition: color 180ms ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.is-active {
+      color: var(--text);
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(9, 22, 52, 0.84);
+      padding: 12px;
+      cursor: pointer;
+    }
+
+    .menu-toggle span {
+      display: block;
+      width: 100%;
+      height: 2px;
+      margin: 4px 0;
+      background: var(--text);
+    }
+
+    .btn {
+      min-height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 18px;
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 800;
+      line-height: 1.15;
+      text-decoration: none;
+      text-align: center;
+      white-space: normal;
+      cursor: pointer;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, box-shadow 180ms ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      border-color: rgba(0, 224, 255, 0.78);
+      background:
+        linear-gradient(135deg, rgba(0, 224, 255, 0.22), rgba(168, 85, 247, 0.2)),
+        rgba(0, 224, 255, 0.08);
+      box-shadow: 0 0 30px rgba(0, 224, 255, 0.2);
+    }
+
+    .btn-secondary {
+      background: rgba(9, 22, 52, 0.74);
+    }
+
+    .hero {
+      position: relative;
+      min-height: min(820px, 100svh);
+      display: grid;
+      align-items: center;
+      padding: 126px 0 76px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .breadcrumb {
+      width: min(1180px, calc(100vw - 40px));
+      margin: 0 auto 22px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .breadcrumb a {
+      color: var(--cyan);
+      text-decoration: none;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--text);
+    }
+
+    .breadcrumb span {
+      color: var(--dim);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 12% 0 auto;
+      height: 520px;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(0, 224, 255, 0.11), transparent 33%),
+        conic-gradient(from 180deg at 50% 50%, transparent, rgba(0, 224, 255, 0.1), rgba(168, 85, 247, 0.12), transparent);
+      opacity: 0.8;
+      filter: blur(1px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(360px, 0.78fr);
+      gap: 58px;
+      align-items: center;
+      min-width: 0;
+    }
+
+    .hero-grid > *,
+    .form-grid > *,
+    .section-heading {
+      min-width: 0;
+    }
+
+    .eyebrow {
+      margin: 0 0 18px;
+      color: var(--cyan);
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 850px;
+      font-size: clamp(3.2rem, 7.2vw, 7rem);
+      text-transform: uppercase;
+      overflow-wrap: normal;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4.8vw, 4.45rem);
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      font-size: 1.24rem;
+      line-height: 1.15;
+    }
+
+    .hero-subtitle {
+      margin: 18px 0 0;
+      max-width: 760px;
+      color: var(--text);
+      font-size: clamp(1.24rem, 2.5vw, 2rem);
+      line-height: 1.2;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-copy {
+      max-width: 680px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.12rem;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .hero-orbit {
+      position: relative;
+      max-width: 100%;
+      min-height: 500px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .orbital-ring {
+      position: absolute;
+      inset: 42px;
+      border: 1px solid rgba(0, 224, 255, 0.24);
+      border-radius: 50%;
+      transform: rotateX(64deg) rotateZ(-18deg);
+      box-shadow: 0 0 50px rgba(0, 224, 255, 0.09);
+    }
+
+    .orbital-ring:nth-child(2) {
+      inset: 96px 30px;
+      border-color: rgba(168, 85, 247, 0.34);
+      transform: rotateX(64deg) rotateZ(22deg);
+    }
+
+    .hero-logo-panel {
+      position: relative;
+      z-index: 1;
+      width: min(310px, 82vw);
+      min-height: 310px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(0, 224, 255, 0.34);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(9, 22, 52, 0.78), rgba(2, 5, 18, 0.84)),
+        radial-gradient(circle, rgba(0, 224, 255, 0.15), transparent 62%);
+      box-shadow: var(--shadow), 0 0 44px rgba(0, 224, 255, 0.12);
+      transform: perspective(900px) rotateX(56deg) rotateZ(-38deg);
+    }
+
+    .hero-logo-panel picture,
+    .hero-logo-panel img {
+      width: 120px;
+      height: 120px;
+      transform: rotateZ(38deg) rotateX(-56deg);
+      filter: drop-shadow(0 0 28px rgba(0, 224, 255, 0.34));
+    }
+
+    .spark {
+      position: absolute;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 22px rgba(0, 255, 136, 0.72);
+    }
+
+    .spark.one {
+      top: 72px;
+      right: 84px;
+    }
+
+    .spark.two {
+      left: 52px;
+      bottom: 98px;
+      background: var(--cyan);
+    }
+
+    .section {
+      position: relative;
+      padding: 94px 0;
+      overflow-x: clip;
+    }
+
+    .section-heading {
+      max-width: 850px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading p {
+      max-width: 740px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .acts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .act-card,
+    .form-shell,
+    .quote-box {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(14, 33, 74, 0.82), rgba(7, 14, 36, 0.78));
+      box-shadow: var(--shadow);
+    }
+
+    .act-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+      padding: 28px;
+    }
+
+    .act-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(0, 224, 255, 0.1), transparent 40%, rgba(168, 85, 247, 0.1));
+      opacity: 0.72;
+      pointer-events: none;
+    }
+
+    .act-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .act-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      color: var(--cyan);
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      overflow-wrap: anywhere;
+    }
+
+    .act-icon {
+      font-size: 1.5rem;
+    }
+
+    .act-card p {
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .delivery {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 24px;
+      padding: 8px 10px;
+      border: 1px solid rgba(0, 255, 136, 0.28);
+      border-radius: 999px;
+      color: var(--green);
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .delivery.manual {
+      border-color: rgba(168, 85, 247, 0.44);
+      color: #d8bdff;
+    }
+
+    .audience-band {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: rgba(2, 5, 18, 0.46);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .pill {
+      padding: 10px 13px;
+      border: 1px solid rgba(0, 224, 255, 0.24);
+      border-radius: 999px;
+      background: rgba(9, 22, 52, 0.62);
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .quote-section {
+      padding: 78px 0;
+    }
+
+    .quote-box {
+      max-width: 920px;
+      margin: 0 auto;
+      border-color: var(--violet-line);
+      padding: clamp(30px, 6vw, 58px);
+      text-align: center;
+    }
+
+    .quote-box blockquote {
+      margin: 0;
+      color: var(--cyan);
+      font-family: var(--font-display);
+      font-size: clamp(1.72rem, 4.5vw, 3.45rem);
+      font-style: italic;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.78fr) minmax(420px, 1fr);
+      gap: 46px;
+      align-items: start;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 1.1rem;
+      line-height: 1.7;
+    }
+
+    .form-shell {
+      padding: clamp(22px, 4vw, 34px);
+    }
+
+    .form-status {
+      display: none;
+      margin: 0 0 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(0, 224, 255, 0.34);
+      border-radius: 8px;
+      background: rgba(0, 224, 255, 0.08);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .form-status.show {
+      display: block;
+    }
+
+    .form-status.error {
+      border-color: rgba(255, 116, 116, 0.4);
+      background: rgba(255, 116, 116, 0.08);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+
+    label {
+      color: var(--text);
+      font-weight: 800;
+    }
+
+    .input,
+    .textarea {
+      width: 100%;
+      min-height: 50px;
+      border: 1px solid rgba(164, 197, 231, 0.22);
+      border-radius: 8px;
+      background: rgba(2, 5, 18, 0.62);
+      color: var(--text);
+      padding: 13px 14px;
+      outline: none;
+      transition: border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .input:focus,
+    .textarea:focus {
+      border-color: rgba(0, 224, 255, 0.72);
+      box-shadow: 0 0 0 4px rgba(0, 224, 255, 0.12);
+    }
+
+    .input::placeholder {
+      color: #7989a7;
+    }
+
+    .field-help {
+      margin: 0;
+      color: var(--dim);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .checkbox-row {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 12px;
+      align-items: start;
+      margin: 4px 0 22px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .checkbox-row input {
+      width: 18px;
+      height: 18px;
+      margin-top: 2px;
+      accent-color: var(--cyan);
+    }
+
+    .form-shell .btn {
+      width: 100%;
+    }
+
+    .microcopy {
+      margin: 14px 0 0;
+      color: var(--dim);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .success-panel {
+      display: none;
+      margin-top: 22px;
+      padding: clamp(22px, 4vw, 34px);
+      border: 1px solid rgba(0, 255, 136, 0.38);
+      border-radius: 8px;
+      background:
+        linear-gradient(145deg, rgba(0, 255, 136, 0.08), rgba(0, 224, 255, 0.06)),
+        rgba(2, 5, 18, 0.72);
+      color: var(--text);
+      line-height: 1.68;
+      white-space: pre-line;
+    }
+
+    .success-panel.show {
+      display: block;
+    }
+
+    .success-panel:focus {
+      outline: 2px solid rgba(0, 255, 136, 0.58);
+      outline-offset: 4px;
+    }
+
+    .success-panel p {
+      margin: 0 0 14px;
+    }
+
+    .success-panel p:last-child {
+      margin-bottom: 0;
+    }
+
+    .success-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .success-download {
+      width: 100%;
+      min-height: 52px;
+      border: 1px solid rgba(0, 224, 255, 0.46);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 14px;
+      background: rgba(0, 224, 255, 0.1);
+      color: var(--text);
+      font-family: var(--font-display);
+      font-weight: 800;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      white-space: normal;
+    }
+
+    .success-download:hover {
+      border-color: rgba(0, 255, 136, 0.58);
+      background: rgba(0, 255, 136, 0.1);
+    }
+
+    .setup-note {
+      margin-top: 18px;
+      padding: 13px 14px;
+      border: 1px solid rgba(168, 85, 247, 0.36);
+      border-radius: 8px;
+      color: var(--muted);
+      background: rgba(168, 85, 247, 0.08);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: rgba(2, 5, 18, 0.72);
+      padding: 34px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--cyan);
+    }
+
+    .footer-copy {
+      width: 100%;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+    }
+
+    .motion-ok .reveal {
+      opacity: 0;
+      transform: translate3d(0, 46px, 0);
+      transition: opacity 780ms ease, transform 820ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .motion-ok .reveal.is-visible {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .act-card {
+        transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
+      }
+
+      .act-card:hover {
+        border-color: var(--cyan-line);
+        transform: translateY(-8px);
+        box-shadow: 0 34px 90px rgba(0, 0, 0, 0.5), 0 0 42px rgba(0, 224, 255, 0.08);
+      }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-orbit {
+        min-height: 360px;
+        opacity: 0.86;
+      }
+
+      .acts-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 780px) {
+      .nav-shell,
+      .container {
+        width: min(calc(100vw - 28px), 1180px);
+      }
+
+      .breadcrumb {
+        width: min(calc(100vw - 28px), 1180px);
+      }
+
+      .site-header {
+        background: rgba(5, 9, 26, 0.92);
+      }
+
+      .brand > span {
+        font-size: 0.78rem;
+      }
+
+      .brand picture,
+      .brand img {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 14px;
+        right: 14px;
+        display: none;
+        margin: 0;
+        padding: 10px;
+        border: 1px solid var(--line);
+        background: rgba(5, 9, 26, 0.96);
+        box-shadow: var(--shadow);
+      }
+
+      .nav-links.is-open {
+        display: grid;
+      }
+
+      .nav-links a {
+        padding: 14px 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links a:last-child {
+        border-bottom: 0;
+      }
+
+      .menu-toggle {
+        margin-left: auto;
+        display: block;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 118px 0 62px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .success-actions {
+        grid-template-columns: 1fr;
+        gap: 14px;
+        margin: 18px 0;
+      }
+
+      .success-download {
+        min-height: 58px;
+        padding: 15px 16px;
+        font-size: 0.95rem;
+        overflow-wrap: anywhere;
+      }
+
+      .btn {
+        font-size: 0.95rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.08rem;
+      }
+
+      .hero-copy {
+        font-size: 1rem;
+      }
+
+      .hero-orbit {
+        min-height: 280px;
+      }
+
+      .hero-logo-panel {
+        width: 230px;
+        min-height: 230px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero .eyebrow,
+      .hero h1,
+      .hero-subtitle,
+      .hero-copy,
+      .section-heading h2 {
+        width: min(calc(100vw - 28px), 360px);
+        max-width: min(calc(100vw - 28px), 360px);
+      }
+
+      .hero-actions .btn {
+        width: min(calc(100vw - 28px), 360px);
+      }
+
+      h1 {
+        font-size: clamp(2.35rem, 10vw, 3rem);
+      }
+
+      h2 {
+        font-size: 2rem;
+      }
+
+      .act-card {
+        min-height: auto;
+        padding: 22px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .brand > span {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .cursor-glow {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-shell" aria-label="Navegación principal">
+      <a class="brand" href="/" aria-label="Tuimagen Studios inicio">
+        <picture>
+          <source srcset="../assets/brand/logo-tuimagenstudios-neon.webp" type="image/webp" />
+          <img src="../assets/brand/logo-tuimagenstudios-neon.png" alt="" width="44" height="44" />
+        </picture>
+        <span>TUIMAGEN<span>STUDIOS</span></span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="/#services">Servicios</a>
+        <a href="/#projects">Proyectos</a>
+        <a href="/#contact">Contacto</a>
+        <a href="#formulario">Descargar</a>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="hero" aria-label="Despertar Digital">
+      <nav class="breadcrumb reveal" aria-label="Breadcrumb">
+        <a href="/">Inicio</a>
+        <span>/</span>
+        <strong>Despertar Digital</strong>
+      </nav>
+      <div class="container hero-grid">
+        <div class="reveal">
+          <p class="eyebrow">Paquete gratuito para emprendedoras hispanas</p>
+          <h1>Despertar Digital</h1>
+          <p class="hero-subtitle">Salí del modo invisible. Empezá a existir con claridad.</p>
+          <p class="hero-copy">
+            Una guía gratuita en 3 actos para emprendedoras que tienen algo valioso para ofrecer pero todavía no encontraron cómo mostrarlo.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#formulario">Quiero el paquete gratis</a>
+            <a class="btn btn-secondary" href="#paquete">Ver que incluye</a>
+          </div>
+        </div>
+
+        <div class="hero-orbit reveal" aria-hidden="true">
+          <div class="orbital-ring"></div>
+          <div class="orbital-ring"></div>
+          <div class="hero-logo-panel">
+            <picture>
+              <source srcset="../assets/brand/logo-tuimagenstudios-neon.webp" type="image/webp" />
+              <img src="../assets/brand/logo-tuimagenstudios-neon.png" alt="" width="120" height="120" />
+            </picture>
+          </div>
+          <span class="spark one"></span>
+          <span class="spark two"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="paquete">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Qué incluye el paquete</p>
+          <h2>Tres actos. Tres regalos. Una transformación.</h2>
+        </div>
+
+        <div class="acts-grid">
+          <article class="act-card reveal">
+            <div class="act-kicker"><span class="act-icon" aria-hidden="true">📘</span> Acto 2 - La guía editorial</div>
+            <h3>Marketing con IA: lo que nadie te explica</h3>
+            <p>20 páginas con la mirada honesta sobre qué está pasando en marketing digital y cómo encontrar tu dirección antes de elegir herramientas.</p>
+            <span class="delivery">⚡ Llega al instante</span>
+          </article>
+
+          <article class="act-card reveal">
+            <div class="act-kicker"><span class="act-icon" aria-hidden="true">📅</span> Acto 3 - 7 días para empezar a aparecer</div>
+            <h3>Tu primera semana de presencia digital con dirección</h3>
+            <p>Calendario editorial con templates listos: post, story, reel, día por día. Para que esta misma semana empieces a publicar con sentido.</p>
+            <span class="delivery">⚡ Llega al instante</span>
+          </article>
+
+          <article class="act-card reveal">
+            <div class="act-kicker"><span class="act-icon" aria-hidden="true">🪞</span> Acto 1 - Tu auditoría personalizada</div>
+            <h3>El primer espejo honesto</h3>
+            <p>Análisis profesional de tu presencia digital con 3 capas por hallazgo: qué encontramos, por qué importa, qué harías vos. Plus: plan de 30 días.</p>
+            <span class="delivery manual">✨ Llega en 24-48h preparado a mano</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section audience-band" id="para-quien">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Para quién es este paquete</p>
+          <h2>Para marcas personales que ya tienen algo real, pero todavía no lo están mostrando con claridad.</h2>
+          <p>
+            Es para emprendedoras que sienten que publican a medias, que tienen una oferta valiosa y una intuición fuerte, pero necesitan ordenar mensaje, presencia y dirección antes de sumar más herramientas.
+          </p>
+          <div class="pill-row" aria-label="Publicos recomendados">
+            <span class="pill">Terapeutas</span>
+            <span class="pill">Coaches</span>
+            <span class="pill">Diseñadoras</span>
+            <span class="pill">Asesoras</span>
+            <span class="pill">Profesionales del bienestar</span>
+            <span class="pill">Marcas personales</span>
+            <span class="pill">Estudios creativos</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section" aria-label="Cita destacada">
+      <div class="container">
+        <div class="quote-box reveal">
+          <blockquote>La invisibilidad digital no es un problema de algoritmos. Es un problema de claridad.</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="formulario">
+      <div class="container form-grid">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Descarga gratuita</p>
+          <h2>Pedí tu Despertar Digital</h2>
+          <p class="form-note">
+            Los dos primeros PDFs llegan al instante. Tu auditoría personalizada en 24-48 horas.
+          </p>
+        </div>
+
+        <div class="form-shell reveal">
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+          <form id="leadForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+            <input type="hidden" name="access_key" id="accessKey" value="c9d5e6e0-323a-401f-a7a8-bf7d781095b2" />
+            <input type="hidden" name="subject" id="emailSubject" value="🌌 Nuevo lead Despertar Digital" />
+            <input type="hidden" name="from_name" value="Sistema Despertar Digital" />
+            <input type="hidden" name="redirect" value="https://tuimagenstudios.com/despertar/" />
+            <input type="hidden" name="message" id="notificationMessage" value="" />
+            <input type="hidden" name="lead_origen" value="Landing /despertar/" />
+            <input type="hidden" name="pdf_acto_2" value="https://tuimagenstudios.com/despertar/recursos/despertar-digital-acto-2.pdf" />
+            <input type="hidden" name="pdf_acto_3" value="https://tuimagenstudios.com/despertar/recursos/despertar-digital-acto-3.pdf" />
+            <input type="checkbox" name="botcheck" style="display: none;" tabindex="-1" aria-hidden="true" autocomplete="off" />
+
+            <div class="form-row">
+              <label for="fullName">Nombre completo *</label>
+              <input class="input" id="fullName" name="name" type="text" autocomplete="name" required minlength="2" maxlength="120" placeholder="Tu nombre" />
+            </div>
+
+            <div class="form-row">
+              <label for="email">Email *</label>
+              <input class="input" id="email" name="email" type="email" autocomplete="email" required maxlength="160" placeholder="tu@email.com" />
+            </div>
+
+            <div class="form-row">
+              <label for="businessUrl">Web, red social o punto de partida *</label>
+              <input class="input" id="businessUrl" name="Web/red/punto de partida" type="text" inputmode="url" autocomplete="url" required maxlength="240" placeholder="https://tuweb.com, instagram.com/tuusuario o 'todavía no tengo'" />
+              <p class="field-help">Puede ser tu web, Instagram, LinkedIn, portfolio, Google Business o una frase breve si todavía estás empezando.</p>
+            </div>
+
+            <div class="form-row">
+              <label for="whatsapp">WhatsApp con código de país</label>
+              <input class="input" id="whatsapp" name="WhatsApp" type="tel" autocomplete="tel" maxlength="32" placeholder="+54 2281 000000" />
+            </div>
+
+            <label class="checkbox-row" for="consent">
+              <input id="consent" name="Consentimiento" type="checkbox" value="Acepto recibir el paquete y emails ocasionales de Tuimagen Studios" required />
+              <span>Acepto recibir el paquete + emails ocasionales de Tuimagen Studios</span>
+            </label>
+
+            <button class="btn btn-primary" id="submitButton" type="submit">DESCARGAR PAQUETE GRATIS</button>
+            <p class="microcopy">Sin spam. Sin cobros ocultos. Podés desuscribirte cuando quieras.</p>
+          </form>
+
+          <div class="success-panel" id="successPanel" tabindex="-1" aria-live="polite"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a class="brand" href="/" aria-label="Tuimagen Studios inicio">
+        <picture>
+          <source srcset="../assets/brand/logo-tuimagenstudios-neon.webp" type="image/webp" />
+          <img src="../assets/brand/logo-tuimagenstudios-neon.png" alt="" width="40" height="40" />
+        </picture>
+        <span>TUIMAGEN<span>STUDIOS</span></span>
+      </a>
+
+      <nav class="footer-links" aria-label="Links de Tuimagen Studios">
+        <a href="https://www.instagram.com/tuimagenstudios/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.linkedin.com/company/tuimagenstudios/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://tuimagenstudios.com/">Web principal</a>
+      </nav>
+
+      <p class="footer-copy">Creatividad con propósito. © 2026 Tuimagen Studios.</p>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById("siteHeader");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const cursorGlow = document.getElementById("cursorGlow");
+    const leadForm = document.getElementById("leadForm");
+    const formStatus = document.getElementById("formStatus");
+    const successPanel = document.getElementById("successPanel");
+    const submitButton = document.getElementById("submitButton");
+    const accessKey = document.getElementById("accessKey");
+    const notificationMessage = document.getElementById("notificationMessage");
+    const emailSubject = document.getElementById("emailSubject");
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const WEB3FORMS_PLACEHOLDER = "REEMPLAZAR_WEB3FORMS_ACCESS_KEY";
+    const LAST_SUBMIT_KEY = "despertar_last_submit";
+    const SUBMIT_COOLDOWN_MS = 60000;
+    const DEFAULT_SUBMIT_TEXT = "DESCARGAR PAQUETE GRATIS";
+    const COOLDOWN_SUBMIT_TEXT = "Acabás de enviar el form. Esperá un momento antes de reintentar.";
+    const PDF_ACTO_2 = "https://tuimagenstudios.com/despertar/recursos/despertar-digital-acto-2.pdf";
+    const PDF_ACTO_3 = "https://tuimagenstudios.com/despertar/recursos/despertar-digital-acto-3.pdf";
+
+    function setHeaderState() {
+      header?.classList.toggle("is-scrolled", window.scrollY > 18);
+    }
+
+    setHeaderState();
+    window.addEventListener("scroll", setHeaderState, { passive: true });
+
+    menuToggle?.addEventListener("click", () => {
+      const isOpen = navLinks?.classList.toggle("is-open") || false;
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("is-open");
+        menuToggle?.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const revealElements = [...document.querySelectorAll(".reveal")];
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+    if (!reducedMotion) {
+      document.documentElement.classList.add("motion-ok");
+      revealElements.forEach((element, index) => {
+        element.style.transitionDelay = `${Math.min(index % 6, 5) * 80}ms`;
+        if (element.getBoundingClientRect().top < window.innerHeight) element.classList.add("is-visible");
+        revealObserver.observe(element);
+      });
+    }
+
+    window.addEventListener("pointermove", (event) => {
+      if (cursorGlow && !reducedMotion && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        cursorGlow.classList.add("is-visible");
+        cursorGlow.style.transform = `translate3d(${event.clientX - 130}px, ${event.clientY - 130}px, 0)`;
+      }
+    }, { passive: true });
+
+    document.addEventListener("pointerleave", () => {
+      cursorGlow?.classList.remove("is-visible");
+    });
+
+    function setStatus(message, type = "info") {
+      formStatus.textContent = message;
+      formStatus.classList.add("show");
+      formStatus.classList.toggle("error", type === "error");
+    }
+
+    function clearStatus() {
+      formStatus.textContent = "";
+      formStatus.classList.remove("show", "error");
+    }
+
+    function readLastSubmitTime() {
+      try {
+        return Number(localStorage.getItem(LAST_SUBMIT_KEY) || 0);
+      } catch {
+        return 0;
+      }
+    }
+
+    function writeLastSubmitTime() {
+      try {
+        localStorage.setItem(LAST_SUBMIT_KEY, String(Date.now()));
+      } catch {
+        // If storage is unavailable, the form still relies on Web3Forms server-side checks.
+      }
+    }
+
+    function getCooldownRemaining() {
+      const elapsed = Date.now() - readLastSubmitTime();
+      return Math.max(SUBMIT_COOLDOWN_MS - elapsed, 0);
+    }
+
+    function applySubmitCooldown({ showStatus = true } = {}) {
+      const remaining = getCooldownRemaining();
+
+      if (!submitButton) return false;
+
+      if (remaining > 0) {
+        submitButton.disabled = true;
+        submitButton.textContent = COOLDOWN_SUBMIT_TEXT;
+        if (showStatus && !successPanel.classList.contains("show")) {
+          setStatus(COOLDOWN_SUBMIT_TEXT);
+        } else {
+          clearStatus();
+        }
+
+        window.setTimeout(() => {
+          if (getCooldownRemaining() === 0) {
+            submitButton.disabled = false;
+            submitButton.textContent = DEFAULT_SUBMIT_TEXT;
+            clearStatus();
+          }
+        }, remaining + 100);
+
+        return true;
+      }
+
+      submitButton.disabled = false;
+      submitButton.textContent = DEFAULT_SUBMIT_TEXT;
+      return false;
+    }
+
+    function normalizeBusinessStartingPoint(value) {
+      const cleanValue = String(value || "").trim();
+      if (!cleanValue || /[\u0000-\u001F<>]/.test(cleanValue)) return "";
+
+      const lowerValue = cleanValue.toLowerCase();
+      const hasProtocol = /^[a-z][a-z\d+\-.]*:/i.test(cleanValue);
+      const looksLikeEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanValue) || /^https?:\/\/[^/\s]+@/i.test(cleanValue);
+      const looksLikeCredential = /(?:password|contraseña|passwd|token|api[_-]?key|secret)\s*[:=]/i.test(cleanValue);
+
+      if (looksLikeEmail || looksLikeCredential) return "";
+      if (/^(mailto|javascript|data|file|ftp):/i.test(cleanValue)) return "";
+      if (hasProtocol && !/^https?:\/\//i.test(cleanValue)) return "";
+
+      const starterPhrases = [
+        "no tengo",
+        "no tengo web",
+        "todavía no tengo",
+        "todavia no tengo",
+        "todavía no tengo web",
+        "todavia no tengo web",
+        "estoy empezando"
+      ];
+
+      if (starterPhrases.includes(lowerValue)) return cleanValue;
+
+      if (!/^https?:\/\//i.test(cleanValue) && !/[.\s/]/.test(cleanValue)) return cleanValue;
+      if (!/^https?:\/\//i.test(cleanValue) && /\s/.test(cleanValue) && !/\./.test(cleanValue)) return cleanValue;
+      if (/^[a-z][a-z\d+\-.]*:\/\//i.test(cleanValue) && !/^https?:\/\//i.test(cleanValue)) return "";
+
+      const withProtocol = /^https?:\/\//i.test(cleanValue) ? cleanValue : `https://${cleanValue}`;
+
+      try {
+        const parsed = new URL(withProtocol);
+        if (!["http:", "https:"].includes(parsed.protocol)) return "";
+        if (parsed.username || parsed.password) return "";
+        if (/^(javascript|data|file):/i.test(parsed.href)) return "";
+        return parsed.href;
+      } catch {
+        return "";
+      }
+    }
+
+    function cleanText(value, maxLength = 160) {
+      return String(value || "")
+        .replace(/[\u0000-\u001F<>]/g, " ")
+        .replace(/\s+/g, " ")
+        .trim()
+        .slice(0, maxLength);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+
+    function buildNotificationBody({ name, email, startingPoint, whatsapp, consent }) {
+      const timestamp = new Date().toLocaleString("es-AR", {
+        dateStyle: "short",
+        timeStyle: "short"
+      });
+
+      return [
+        "Hola Naty,",
+        "",
+        "Llegó un nuevo lead al paquete Despertar Digital:",
+        "",
+        "Datos:",
+        `Nombre: ${name}`,
+        `Email: ${email}`,
+        `Web/red/punto de partida: ${startingPoint}`,
+        `WhatsApp: ${whatsapp || "No dejó"}`,
+        `Fecha: ${timestamp}`,
+        `Consentimiento: ${consent ? "Sí" : "No"}`,
+        "",
+        "Próximo paso:",
+        "Preparar el Acto 1 manualmente en 24-48 horas.",
+        "",
+        "Referencia interna:",
+        "Revisar /despertar/README-OPERACION.md",
+        "",
+        "Links públicos de los PDFs finales:",
+        PDF_ACTO_2,
+        PDF_ACTO_3,
+        "",
+        "--",
+        "Sistema Despertar Digital",
+        "Generado automáticamente"
+      ].join("\n");
+    }
+
+    function buildSuccessMessage(name) {
+      const safeName = escapeHtml(name);
+
+      return `
+        <p>🌌 Listo, ${safeName}.</p>
+        <p>Tus dos primeros PDFs ya están disponibles para descargar:</p>
+        <div class="success-actions" aria-label="Descargas directas del paquete Despertar Digital">
+          <a class="success-download" href="/despertar/recursos/despertar-digital-acto-2.pdf" download>Descargar Acto 2 — La guía editorial</a>
+          <a class="success-download" href="/despertar/recursos/despertar-digital-acto-3.pdf" download>Descargar Acto 3 — 7 días para empezar a aparecer</a>
+        </div>
+        <p>Guardá esta página o descargalos ahora para tenerlos a mano.</p>
+        <p>Tu auditoría personalizada — el Acto 1 — la voy a preparar a mano y te llega entre las próximas 24 y 48 horas al email que dejaste.</p>
+        <p>Si necesitás escribirme, podés hacerlo por WhatsApp:<br>+54 2281 375390</p>
+        <p>Despertando con vos,<br>Naty</p>
+      `;
+    }
+
+    applySubmitCooldown();
+
+    leadForm?.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      clearStatus();
+      successPanel.classList.remove("show");
+
+      if (applySubmitCooldown()) return;
+
+      const formData = new FormData(leadForm);
+      const name = cleanText(formData.get("name"), 120);
+      const email = cleanText(formData.get("email"), 160);
+      const startingPoint = normalizeBusinessStartingPoint(formData.get("Web/red/punto de partida"));
+      const whatsapp = cleanText(formData.get("WhatsApp"), 32);
+      const consent = formData.get("Consentimiento");
+
+      if (!name || !email || !startingPoint || !consent) {
+        leadForm.reportValidity();
+        if (!startingPoint) {
+          document.getElementById("businessUrl").setCustomValidity("Ingresá una web, red social o escribí 'todavía no tengo'. No uses email en este campo.");
+          document.getElementById("businessUrl").reportValidity();
+          document.getElementById("businessUrl").setCustomValidity("");
+        }
+        return;
+      }
+
+      document.getElementById("businessUrl").value = startingPoint;
+
+      if (!leadForm.checkValidity()) {
+        leadForm.reportValidity();
+        return;
+      }
+
+      const emailInput = document.getElementById("email");
+      if (!emailInput.checkValidity()) {
+        emailInput.reportValidity();
+        return;
+      }
+
+      if (!accessKey.value || accessKey.value === WEB3FORMS_PLACEHOLDER) {
+        setStatus("Falta configurar la access key real de Web3Forms antes de enviar leads.", "error");
+        return;
+      }
+
+      emailSubject.value = `🌌 Nuevo lead Despertar Digital — ${name}`;
+      notificationMessage.value = buildNotificationBody({ name, email, startingPoint, whatsapp, consent });
+
+      submitButton.disabled = true;
+      submitButton.textContent = "ENVIANDO...";
+
+      try {
+        const response = await fetch(leadForm.action, {
+          method: "POST",
+          headers: {
+            Accept: "application/json"
+          },
+          body: new FormData(leadForm)
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(result.message || "No se pudo enviar el formulario.");
+        }
+
+        leadForm.reset();
+        leadForm.hidden = true;
+        writeLastSubmitTime();
+        successPanel.innerHTML = buildSuccessMessage(name);
+        successPanel.classList.add("show");
+        successPanel.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+        successPanel.focus({ preventScroll: true });
+        applySubmitCooldown({ showStatus: false });
+      } catch (error) {
+        setStatus("No pudimos enviar el formulario. Proba de nuevo o escribinos por WhatsApp: +54 2281 375390.", "error");
+      } finally {
+        if (getCooldownRemaining() === 0) {
+          submitButton.disabled = false;
+          submitButton.textContent = DEFAULT_SUBMIT_TEXT;
+        }
+      }
+    });
+  </script>
+</body>
+</html>
