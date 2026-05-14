@@ -2214,6 +2214,97 @@ h3 {
   line-height: 1.7;
 }
 
+.verification-page {
+  min-height: 100vh;
+}
+
+.verification-nav .verification-nav-links {
+  margin-left: auto;
+}
+
+.verification-hero {
+  min-height: calc(100svh - 104px);
+  display: grid;
+  align-items: center;
+  padding: 140px 0 92px;
+  isolation: isolate;
+}
+
+.verification-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 76% 24%, rgba(0, 224, 255, 0.16), transparent 34%),
+    linear-gradient(115deg, rgba(0, 224, 255, 0.09), transparent 42%),
+    linear-gradient(90deg, rgba(5, 9, 26, 0.97), rgba(5, 9, 26, 0.78));
+  pointer-events: none;
+}
+
+.verification-shell {
+  display: grid;
+  place-items: center;
+}
+
+.verification-content {
+  width: min(760px, 100%);
+  border: 1px solid rgba(0, 224, 255, 0.22);
+  background:
+    linear-gradient(145deg, rgba(0, 224, 255, 0.1), transparent 44%),
+    var(--panel);
+  box-shadow: var(--shadow), 0 0 60px rgba(0, 224, 255, 0.08);
+  backdrop-filter: blur(14px);
+  padding: clamp(32px, 6vw, 64px);
+  overflow: hidden;
+}
+
+.verification-content h1 {
+  max-width: none;
+}
+
+.verification-subtitle {
+  margin: 16px 0 0;
+  color: var(--text);
+  font-size: clamp(1.08rem, 2vw, 1.32rem);
+  line-height: 1.5;
+}
+
+.verification-statement {
+  display: grid;
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.verification-statement p {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+  line-height: 1.75;
+}
+
+.verification-signature {
+  margin-top: 38px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: grid;
+  gap: 8px;
+}
+
+.verification-signature strong {
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+.verification-signature span {
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
 @media (max-width: 1080px) {
   .service-hero-grid,
   .service-list-grid,
@@ -2318,6 +2409,11 @@ h3 {
   .service-cta-panel {
     padding: 28px;
   }
+
+  .verification-hero {
+    min-height: auto;
+    padding: 118px 0 78px;
+  }
 }
 
 @media (max-width: 560px) {
@@ -2328,5 +2424,13 @@ h3 {
   .service-detail-card,
   .faq-card {
     min-height: auto;
+  }
+
+  .verification-nav .verification-nav-links {
+    display: none;
+  }
+
+  .verification-content {
+    padding: 28px 22px;
   }
 }
