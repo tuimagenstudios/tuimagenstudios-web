@@ -871,6 +871,68 @@
       line-height: 1.55;
     }
 
+    .book-showcase {
+      padding: 92px 0 108px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(8, 20, 48, 0.36), rgba(2, 5, 18, 0.18));
+    }
+
+    .book-showcase-heading {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .book-showcase-heading h2 {
+      max-width: 700px;
+    }
+
+    .book-showcase-link {
+      display: block;
+      overflow: hidden;
+      border: 1px solid rgba(0, 224, 255, 0.3);
+      background: rgba(255, 248, 235, 0.96);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      transition: transform 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+
+    .book-showcase-link img {
+      width: 100%;
+      max-height: 620px;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .book-showcase-caption {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 22px;
+      background: rgba(5, 9, 26, 0.96);
+      color: var(--text);
+    }
+
+    .book-showcase-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .book-showcase-caption strong {
+      color: var(--cyan);
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .book-showcase-link:hover {
+      border-color: var(--cyan);
+      box-shadow: 0 34px 86px rgba(0, 0, 0, 0.5), 0 0 40px rgba(0, 224, 255, 0.1);
+      transform: translateY(-6px);
+    }
+
     .site-footer {
       border-top: 1px solid var(--line);
       background: rgba(2, 5, 18, 0.72);
@@ -952,6 +1014,20 @@
     }
 
     @media (max-width: 780px) {
+
+      .book-showcase {
+        padding: 74px 0 82px;
+      }
+
+      .book-showcase-link img {
+        min-height: 280px;
+        object-fit: cover;
+      }
+
+      .book-showcase-caption {
+        align-items: flex-start;
+        flex-direction: column;
+      }
       .nav-shell,
       .container {
         width: min(calc(100vw - 28px), 1180px);
@@ -1137,6 +1213,21 @@
   </header>
 
   <main id="main">
+    <section class="book-showcase" id="libros" aria-labelledby="libros-title">
+      <div class="container">
+        <div class="section-heading book-showcase-heading reveal">
+          <p class="eyebrow">Recursos para vos</p>
+          <h2 id="libros-title">Libros para acompañarte fuera de la pantalla.</h2>
+          <p>Una colección de recursos digitales creados para sumar bienestar, claridad y recetas posibles a tu vida cotidiana.</p>
+        </div>
+
+        <a class="book-showcase-link reveal" href="/libros/" aria-label="Conocer los libros digitales de Tuimagenstudios">
+          <img src="assets/books/coleccion-libros.webp" alt="Colección de libros digitales de Natalia García: Migas de Libertad, Tu Keto Hoy y Nutrir sin Hambre" width="1440" height="1080">
+          <div class="book-showcase-caption"><span>Migas de Libertad · Tu Keto Hoy · Nutrir sin Hambre</span><strong>Conocer la colección →</strong></div>
+        </a>
+      </div>
+    </section>
+
     <section class="hero" id="hero" aria-label="Despertar Digital">
       <nav class="breadcrumb reveal" aria-label="Breadcrumb">
         <a href="/">Inicio</a>
@@ -1290,6 +1381,7 @@
         </div>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
