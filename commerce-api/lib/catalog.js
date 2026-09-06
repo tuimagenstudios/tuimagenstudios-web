@@ -1,4 +1,10 @@
 export const CATALOG = {
+  "prueba-interna": {
+    title: "Prueba interna de compra — Tuimagenstudios",
+    unit_price: 900,
+    currency_id: "ARS",
+    filePath: "nutrir-sin-hambre.pdf"
+  },
   "migas-de-libertad": {
     title: "Migas de Libertad — Recetas sin gluten y guía para vivir la celiaquía",
     unit_price: 4900,
