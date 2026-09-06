@@ -14,4 +14,4 @@ create table if not exists public.ebook_orders (
 );
 
 alter table public.ebook_orders enable row level security;
--- La service-role usada exclusivamente dentro de Vercel omite RLS. No crear políticas públicas.
+-- La clave secreta usada exclusivamente dentro de Vercel omite RLS. No crear políticas públicas.
