@@ -1,5 +1,5 @@
+import { applyCors, enforceRateLimit, isAllowedOrigin, publicError, requireMethod } from "../lib/http.js";
 import { getProduct } from "../lib/catalog.js";
-import { applyCors, isAllowedOrigin, publicError, requireMethod } from "../lib/http.js";
 import { createPreference } from "../lib/mercadopago.js";
 import { createOrderId } from "../lib/security.js";
 import { createPendingOrder } from "../lib/supabase.js";
@@ -8,6 +8,8 @@ export default async function handler(req, res) {
   applyCors(req, res);
   if (!requireMethod(req, res, "POST")) return;
   if (!isAllowedOrigin(req)) return publicError(res, 403, "Origen no autorizado");
+  if (!enforceRateLimit(req, res, { key: "checkout", limit: 20, windowMs: 5 * 60 * 1000 })) return;
+
   let stage = "validar producto";
   try {
     const productId = typeof req.body?.productId === "string" ? req.body.productId : "";
