@@ -12,7 +12,15 @@ async function mpFetch(path, options = {}) {
       ...(options.headers || {})
     }
   });
-  if (!response.ok) throw new Error(`Mercado Pago respondió ${response.status}`);
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    console.error("mercadopago_error", {
+      path,
+      status: response.status,
+      body: body.slice(0, 1200)
+    });
+    throw new Error(`Mercado Pago respondió ${response.status}`);
+  }
   return response.json();
 }
 
