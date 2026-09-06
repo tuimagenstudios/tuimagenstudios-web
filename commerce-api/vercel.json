@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/webhooks/mercadopago.js": {
+      "maxDuration": 30
+    }
+  }
+}
