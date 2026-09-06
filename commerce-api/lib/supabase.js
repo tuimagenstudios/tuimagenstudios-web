@@ -19,7 +19,15 @@ async function request(path, options = {}) {
       ...(options.headers || {})
     }
   });
-  if (!response.ok) throw new Error(`Supabase respondió ${response.status}`);
+  if (!response.ok) {
+    const body = await response.text().catch(() => "");
+    console.error("supabase_error", {
+      path,
+      status: response.status,
+      body: body.slice(0, 1200)
+    });
+    throw new Error(`Supabase respondió ${response.status}: ${body.slice(0, 300)}`);
+  }
   const contentType = response.headers.get("content-type") || "";
   return contentType.includes("application/json") ? response.json() : null;
 }
