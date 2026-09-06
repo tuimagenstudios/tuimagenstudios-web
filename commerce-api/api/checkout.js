@@ -34,11 +34,6 @@ export default async function handler(req, res) {
       message: error?.message || String(error),
       stack: error?.stack
     });
-    if (req.headers["x-debug-checkout"] === "tuimagen-debug-2026") {
-      if (error?.supabaseStatus) res.setHeader("X-Debug-Supabase-Status", String(error.supabaseStatus));
-      if (error?.supabaseBody) res.setHeader("X-Debug-Supabase-Body", error.supabaseBody);
-      res.setHeader("X-Debug-Checkout-Stage", stage);
-    }
     publicError(res, 500, "No pudimos iniciar el pago. Intentá nuevamente.");
   }
 }
