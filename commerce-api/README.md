@@ -17,7 +17,7 @@ Este directorio se publica como **un proyecto Vercel separado**. La web pública
 - Ejecutar `supabase/schema.sql` en el SQL Editor.
 - Crear una app de Mercado Pago Checkout Pro y configurar el webhook `https://api.tuimagenstudios.com/api/webhooks/mercadopago` para eventos de pagos.
 - Crear y verificar el remitente de correo en Resend.
-- Cargar las variables de `.env.example` en Vercel: solo Producción. Nunca ponerlas en GitHub ni en la web.
+- Cargar las variables de `.env.example` en Vercel: solo Producción. Nunca poner sus valores reales en GitHub ni en la web.
 - Añadir el dominio `api.tuimagenstudios.com` al proyecto Vercel y crear el CNAME que Vercel indique.
 
 ## Verificación previa
