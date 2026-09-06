@@ -29,6 +29,7 @@ export default async function handler(req, res) {
     if (!preference?.init_point) throw new Error("No se recibió la URL de pago");
     res.status(201).json({ checkoutUrl: preference.init_point });
   } catch (error) {
+    res.setHeader("x-checkout-stage", stage);
     console.error("checkout_error", {
       stage,
       message: error?.message || String(error),
