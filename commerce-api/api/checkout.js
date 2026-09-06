@@ -30,6 +30,17 @@ export default async function handler(req, res) {
     res.status(201).json({ checkoutUrl: preference.init_point });
   } catch (error) {
     res.setHeader("x-checkout-stage", stage);
+    const supabaseKey = process.env.SUPABASE_SECRET_KEY || "";
+    const keyKind = supabaseKey.startsWith("sb_secret_")
+      ? "sb_secret"
+      : supabaseKey.startsWith("sb_publishable_")
+        ? "sb_publishable"
+        : supabaseKey.startsWith("ey")
+          ? "legacy_jwt"
+          : supabaseKey
+            ? "other"
+            : "missing";
+    res.setHeader("x-supabase-key-kind", keyKind);
     console.error("checkout_error", {
       stage,
       message: error?.message || String(error),
