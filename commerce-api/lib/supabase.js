@@ -23,7 +23,11 @@ async function request(path, options = {}) {
     headers
   });
   if (!response.ok) {
-    throw new Error(`Supabase respondió ${response.status}`);
+    const responseText = await response.text().catch(() => "");
+    const error = new Error(`Supabase respondió ${response.status}`);
+    error.supabaseStatus = response.status;
+    error.supabaseBody = responseText.slice(0, 500);
+    throw error;
   }
   const contentType = response.headers.get("content-type") || "";
   return contentType.includes("application/json") ? response.json() : null;
