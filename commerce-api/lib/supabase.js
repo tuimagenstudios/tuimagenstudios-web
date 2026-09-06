@@ -10,14 +10,17 @@ function config() {
 
 async function request(path, options = {}) {
   const { url, key } = config();
+  const headers = {
+    apikey: key,
+    "Content-Type": "application/json",
+    ...(options.headers || {})
+  };
+  // New sb_secret_ keys belong in apikey only. Legacy service_role JWTs
+  // still need the Authorization header for backwards compatibility.
+  if (!key.startsWith("sb_")) headers.Authorization = `Bearer ${key}`;
   const response = await fetch(`${url}${path}`, {
     ...options,
-    headers: {
-      apikey: key,
-      Authorization: `Bearer ${key}`,
-      "Content-Type": "application/json",
-      ...(options.headers || {})
-    }
+    headers
   });
   if (!response.ok) {
     const body = await response.text().catch(() => "");
