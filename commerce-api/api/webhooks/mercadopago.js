@@ -1,10 +1,12 @@
 import { getProduct } from "../../lib/catalog.js";
 import { sendDownloadEmail } from "../../lib/email.js";
+import { applySecurityHeaders } from "../../lib/http.js";
 import { getPayment, verifyWebhookSignature } from "../../lib/mercadopago.js";
 import { requiredEnv, signDownloadToken } from "../../lib/security.js";
 import { getOrder, setOrderPayment } from "../../lib/supabase.js";
 
 export default async function handler(req, res) {
+  applySecurityHeaders(res);
   if (req.method !== "POST") return res.status(405).end();
   try {
     if (!verifyWebhookSignature(req)) return res.status(401).json({ error: "Firma no válida" });
