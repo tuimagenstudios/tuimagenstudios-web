@@ -1,5 +1,5 @@
 import { getProduct } from "../lib/catalog.js";
-import { applyCors, publicError, requireMethod } from "../lib/http.js";
+import { applyCors, enforceRateLimit, publicError, requireMethod } from "../lib/http.js";
 import { verifyDownloadToken } from "../lib/security.js";
 import { createSignedDownloadUrl, getOrder } from "../lib/supabase.js";
 
@@ -12,6 +12,8 @@ const RETIRED_PRODUCT_FILES = {
 export default async function handler(req, res) {
   applyCors(req, res);
   if (!requireMethod(req, res, "GET")) return;
+  if (!enforceRateLimit(req, res, { key: "download", limit: 30, windowMs: 5 * 60 * 1000 })) return;
+
   try {
     const payload = verifyDownloadToken(req.query?.token);
     if (!payload) return publicError(res, 401, "Este enlace venció o no es válido");
