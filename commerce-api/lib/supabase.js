@@ -3,7 +3,7 @@ import { requiredEnv } from "./security.js";
 function config() {
   return {
     url: requiredEnv("SUPABASE_URL").replace(/\/$/, ""),
-    key: requiredEnv("SUPABASE_SERVICE_ROLE_KEY"),
+    key: requiredEnv("SUPABASE_SECRET_KEY"),
     bucket: requiredEnv("SUPABASE_BUCKET")
   };
 }
