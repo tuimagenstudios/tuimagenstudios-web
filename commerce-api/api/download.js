@@ -3,6 +3,12 @@ import { applyCors, publicError, requireMethod } from "../lib/http.js";
 import { verifyDownloadToken } from "../lib/security.js";
 import { createSignedDownloadUrl, getOrder } from "../lib/supabase.js";
 
+// Keeps already-approved purchases downloadable if a temporary product is
+// subsequently retired from the checkout catalog.
+const RETIRED_PRODUCT_FILES = {
+  "prueba-interna": ["nutrir-sin-hambre.pdf"]
+};
+
 export default async function handler(req, res) {
   applyCors(req, res);
   if (!requireMethod(req, res, "GET")) return;
@@ -12,7 +18,8 @@ export default async function handler(req, res) {
     const order = await getOrder(payload.orderId);
     if (!order || order.status !== "approved") return publicError(res, 403, "Descarga no disponible");
     const product = getProduct(order.product_id);
-    const filePaths = product?.filePaths || (product?.filePath ? [product.filePath] : []);
+    const filePaths = product?.filePaths ||
+      (product?.filePath ? [product.filePath] : RETIRED_PRODUCT_FILES[order.product_id] || []);
     const requestedFile = String(req.query?.file || filePaths[0] || "");
     if (!filePaths.includes(requestedFile)) return publicError(res, 403, "Archivo no autorizado");
     const url = await createSignedDownloadUrl(requestedFile);
