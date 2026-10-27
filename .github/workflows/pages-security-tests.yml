@@ -1,19 +1,17 @@
-name: Static site security tests
+name: GitHub Pages security tests
 
 on:
   pull_request:
-  push:
-    branches: [main]
 
 permissions:
   contents: read
 
 jobs:
-  static-security:
+  pages-security:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 24
-      - run: node --test site-hosting/test/build.test.mjs
+      - run: node --test scripts/test/pages-security.test.mjs
