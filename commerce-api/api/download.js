@@ -1,6 +1,7 @@
 import { getProduct } from "../lib/catalog.js";
 import { applyCors, enforceRateLimit, publicError, requireMethod } from "../lib/http.js";
 import { verifyDownloadToken } from "../lib/security.js";
+import { getPayment, isApprovedPayment } from "../lib/mercadopago.js";
 import { createSignedDownloadUrl, getOrder } from "../lib/supabase.js";
 
 // Keeps already-approved purchases downloadable if a temporary product is
@@ -24,6 +25,11 @@ export default async function handler(req, res) {
       (product?.filePath ? [product.filePath] : RETIRED_PRODUCT_FILES[order.product_id] || []);
     const requestedFile = String(req.query?.file || filePaths[0] || "");
     if (!filePaths.includes(requestedFile)) return publicError(res, 403, "Archivo no autorizado");
+    // Recheck the provider so delayed/missed refund webhooks cannot keep a
+    // previously issued download token usable. Provider outages fail closed.
+    if (!order.mp_payment_id) return publicError(res, 403, "Descarga no disponible");
+    const payment = await getPayment(order.mp_payment_id);
+    if (!isApprovedPayment(payment, order)) return publicError(res, 403, "Descarga no disponible");
     const url = await createSignedDownloadUrl(requestedFile);
     res.setHeader("Cache-Control", "no-store");
     res.redirect(302, url);

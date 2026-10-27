@@ -1,8 +1,11 @@
 export const SITE_ORIGIN = "https://tuimagenstudios.com";
 
 const rateLimitBuckets = new Map();
+const MAX_RATE_LIMIT_BUCKETS = 10000;
+let nextBucketCleanupAt = 0;
 
 export function applySecurityHeaders(res) {
+  res.setHeader("Cache-Control", "no-store");
   res.setHeader("Strict-Transport-Security", "max-age=63072000; includeSubDomains");
   res.setHeader("X-Content-Type-Options", "nosniff");
   res.setHeader("X-Frame-Options", "DENY");
@@ -38,10 +41,23 @@ function clientIp(req) {
 // DDoS mitigation remains the network-level layer.
 export function enforceRateLimit(req, res, { key, limit, windowMs }) {
   const now = Date.now();
+  if (now >= nextBucketCleanupAt) {
+    for (const [storedKey, storedBucket] of rateLimitBuckets) {
+      if (storedBucket.resetAt <= now) rateLimitBuckets.delete(storedKey);
+    }
+    nextBucketCleanupAt = now + 30000;
+  }
   const bucketKey = `${key}:${clientIp(req)}`;
   let bucket = rateLimitBuckets.get(bucketKey);
 
   if (!bucket || bucket.resetAt <= now) {
+    // Do not evict live buckets: doing so would let new clients reset an
+    // existing client's limit. Fail closed until expired buckets are cleared.
+    if (!bucket && rateLimitBuckets.size >= MAX_RATE_LIMIT_BUCKETS) {
+      res.setHeader("Retry-After", "30");
+      publicError(res, 429, "Demasiados intentos. Esperá unos minutos e intentá nuevamente.");
+      return false;
+    }
     bucket = { count: 0, resetAt: now + windowMs };
     rateLimitBuckets.set(bucketKey, bucket);
   }
@@ -49,7 +65,8 @@ export function enforceRateLimit(req, res, { key, limit, windowMs }) {
   if (bucket.count >= limit) {
     const retryAfter = Math.max(1, Math.ceil((bucket.resetAt - now) / 1000));
     res.setHeader("Retry-After", String(retryAfter));
-    return publicError(res, 429, "Demasiados intentos. Esperá unos minutos e intentá nuevamente.");
+    publicError(res, 429, "Demasiados intentos. Esperá unos minutos e intentá nuevamente.");
+    return false;
   }
 
   bucket.count += 1;

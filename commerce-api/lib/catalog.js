@@ -26,5 +26,5 @@ export const CATALOG = {
 };
 
 export function getProduct(productId) {
-  return CATALOG[productId] || null;
+  return typeof productId === "string" && Object.hasOwn(CATALOG, productId) ? CATALOG[productId] : null;
 }
