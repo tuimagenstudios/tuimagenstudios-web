@@ -14,8 +14,10 @@ export function signDownloadToken(orderId, expiresAt) {
 }
 
 export function verifyDownloadToken(token) {
-  const [orderId, expiresAtText, signature, ...rest] = String(token || "").split(".");
-  if (!orderId || !expiresAtText || !signature || rest.length) return null;
+  if (typeof token !== "string" || token.length > 128) return null;
+  const match = /^([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\.([0-9]{1,16})\.([A-Za-z0-9_-]{43})$/i.exec(token);
+  if (!match) return null;
+  const [, orderId, expiresAtText] = match;
   const expiresAt = Number(expiresAtText);
   if (!Number.isSafeInteger(expiresAt) || expiresAt < Date.now()) return null;
   const expected = signDownloadToken(orderId, expiresAt);
@@ -32,6 +34,7 @@ export function requiredEnv(name) {
 }
 
 export function safeEqualHex(left, right) {
-  if (!left || !right || left.length !== right.length) return false;
+  if (typeof left !== "string" || typeof right !== "string" ||
+      !/^[a-f0-9]{64}$/i.test(left) || !/^[a-f0-9]{64}$/i.test(right)) return false;
   return crypto.timingSafeEqual(Buffer.from(left, "hex"), Buffer.from(right, "hex"));
 }

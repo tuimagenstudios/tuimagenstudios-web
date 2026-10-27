@@ -22,6 +22,18 @@ Este directorio se publica como **un proyecto Vercel separado**. La web pública
 
 ## Verificación previa
 
-`npm install && npm run check`
+`npm ci --ignore-scripts && npm run check && npm test && npm audit --omit=dev`
 
 No activar los botones de compra de la web hasta tener una prueba aprobada con credenciales de prueba de Mercado Pago.
+
+## Controles de seguridad (octubre de 2026)
+
+- El webhook acepta solo eventos `payment` firmados para el mismo `data.id` de query y body. Exige `x-request-id`, firma hexadecimal válida y timestamp con tolerancia de cinco minutos (segundos o milisegundos). Una notificación antigua debe reenviarse con una firma nueva; no se debe ampliar la tolerancia para reutilizar firmas capturadas.
+- La API desplegada es de producción: solo pagos consultados a Mercado Pago con `live_mode: true`, importe, moneda, orden e identificador coincidentes habilitan entregas. Las pruebas automatizadas usan servicios simulados y ninguna credencial real; una futura API sandbox requiere configuración independiente.
+- Reembolsos totales o parciales, contracargos, cancelaciones y mediación revocan el acceso mediante el estado SQL existente `cancelled`; no hace falta migración.
+- Cada descarga vuelve a consultar el pago para bloquear acceso incluso si el webhook de revocación se pierde. Si Mercado Pago falla, no se emite una URL privada; reintentar cuando se recupere el proveedor. Una URL de Storage ya emitida conserva su vigencia original de hasta 60 segundos.
+- Los reintentos conservan la aprobación original y su vencimiento de 30 días. El envío a Resend utiliza una clave de idempotencia por orden y solo se marca como enviado si el proveedor devuelve un identificador de aceptación. Esta aceptación no acredita recepción final en el buzón. La ventana de deduplicación depende de Resend.
+- Los errores y redirecciones de la API llevan `Cache-Control: no-store`. Los límites antiabuso terminan el handler con 429 y mantienen un máximo de 10.000 buckets por instancia, limpiando los vencidos cada 30 segundos como máximo. Al llenarse la capacidad se rechazan clientes nuevos temporalmente.
+- Los límites en memoria no son cuotas globales: se reinician con instancias y despliegues. Para límites distribuidos se requiere una regla de Vercel Firewall o almacenamiento compartido. CORS no autentica clientes ajenos al navegador.
+
+Las pruebas de regresión se ejecutan en cada PR con cambios en la API mediante `.github/workflows/security-tests.yml` (Node 20, 22 y 24). El lockfile fija las dependencias resueltas.

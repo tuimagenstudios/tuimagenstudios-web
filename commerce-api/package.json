@@ -7,7 +7,8 @@
     "node": ">=20"
   },
   "scripts": {
-    "check": "node --check api/checkout.js && node --check api/webhooks/mercadopago.js && node --check api/download.js"
+    "check": "node --check api/checkout.js && node --check api/webhooks/mercadopago.js && node --check api/download.js",
+    "test": "node --test"
   },
   "dependencies": {
     "resend": "^4.0.1"
