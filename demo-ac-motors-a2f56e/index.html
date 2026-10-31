@@ -48,6 +48,24 @@
   aside pre { background: var(--fondo); padding: 10px; border-radius: 8px; font-size: 12.5px; white-space: pre-wrap; }
   .reiniciar { margin-top: 10px; background: transparent; color: var(--suave); border: 1px solid var(--borde);
                border-radius: 8px; padding: 6px 10px; cursor: pointer; }
+  .plantilla { border-left: 3px solid var(--acento); }
+  .plantilla small { display: block; color: var(--acento); font-size: 11px; margin-bottom: 3px; }
+  .semana { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; margin-bottom: 16px; }
+  .franja { background: var(--fondo); border: 1px solid var(--borde); border-radius: 8px; padding: 6px 8px; font-size: 12px; }
+  .franja b { display: block; font-size: 12.5px; }
+  .franja span { color: var(--suave); }
+  .franja.libre span { color: #8ee08e; }
+  .franja.lleno { opacity: .55; }
+  .turno { background: var(--fondo); border: 1px solid var(--borde); border-radius: 8px; padding: 10px; margin-bottom: 8px;
+           font-size: 13px; line-height: 1.45; }
+  .turno b { color: var(--texto); }
+  .turno .estado { float: right; font-size: 11px; padding: 2px 8px; border-radius: 10px; background: #3a3300; color: var(--acento); }
+  .turno .estado.ok { background: #1e3a1e; color: #8ee08e; }
+  .turno .acciones { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .turno button { background: #2b2b2b; color: var(--texto); border: 1px solid var(--borde); border-radius: 8px;
+                  padding: 5px 9px; font-size: 12px; cursor: pointer; }
+  .turno button.principal { background: var(--acento); color: #000; border: 0; font-weight: 700; }
+  .turno button:disabled { opacity: .4; cursor: default; }
   #candado { position: fixed; inset: 0; background: var(--fondo); display: flex; align-items: center;
              justify-content: center; padding: 16px; z-index: 10; }
   #candado[hidden] { display: none; }
@@ -87,6 +105,7 @@
   <div class="atajos">
     <button>Hola, quería info</button>
     <button>Tengo un Gol 2012 que hace ruido al frenar, ¿me lo ven el lunes?</button>
+    <button>Quiero hacer el service del Corsa 2015 el jueves</button>
     <button>¿Dan cursos para aprender desde cero?</button>
     <button>Me sale humo del capot y estoy en la autopista</button>
   </div>
@@ -104,6 +123,12 @@
       <span>Prat Norte 0486 · 2281-461982</span>
     </div>
   </div>
+  <h2>Agenda del taller</h2>
+  <p>Lugares libres en cada franja de ingreso. El asistente la consulta antes de ofrecer un día.</p>
+  <div class="semana" id="semana"><p>Cargando…</p></div>
+  <h2>Turnos pedidos</h2>
+  <p>Confirmalos y mandá el recordatorio o el aviso de auto listo: le llegan al cliente por WhatsApp.</p>
+  <div id="turnos"><p>Todavía no hay turnos.</p></div>
   <h2>Pedidos para el taller</h2>
   <p>Resumen interno que el cliente no ve. Aparece cuando se cierra un pedido.</p>
   <div id="resumenes"><p>Todavía no hay pedidos.</p></div>
@@ -118,10 +143,103 @@
   let historial = [];
   let ocupado = false;
   let codigo = "";
+  let reservas = [];
 
   // el código lo valida el Worker; acá solo se recuerda mientras la pestaña esté abierta
   try { codigo = sessionStorage.getItem("codigo-demo") || ""; } catch {}
-  if (codigo) candado.hidden = true;
+  try { reservas = JSON.parse(sessionStorage.getItem("reservas-demo") || "[]"); } catch {}
+
+  function guardarReservas() {
+    try { sessionStorage.setItem("reservas-demo", JSON.stringify(reservas)); } catch {}
+  }
+
+  // solo la fecha de cada turno pedido: el Worker la descuenta de los lugares libres
+  const fechasPedidas = () => reservas.map(r => ({ fecha: r.fecha }));
+
+  async function cargarAgenda() {
+    const cont = document.getElementById("semana");
+    try {
+      const r = await fetch(WORKER + "/agenda", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "X-Codigo": codigo },
+        body: JSON.stringify({ reservas: fechasPedidas() }),
+      });
+      const datos = await r.json();
+      if (!r.ok) throw new Error(datos.error);
+      cont.innerHTML = "";
+      for (const f of datos.franjas.slice(0, 8)) {
+        const d = document.createElement("div");
+        d.className = "franja " + (f.lugares_libres > 0 ? "libre" : "lleno");
+        const titulo = document.createElement("b");
+        titulo.textContent = f.dia;
+        const detalle = document.createElement("span");
+        const libres = f.lugares_libres === 0 ? "Completo"
+          : f.lugares_libres === 1 ? "1 lugar libre" : `${f.lugares_libres} lugares libres`;
+        detalle.textContent = f.franja + " · " + libres + (f.solo_diagnostico ? " · solo diagnóstico" : "");
+        d.append(titulo, detalle);
+        cont.appendChild(d);
+      }
+    } catch {
+      cont.innerHTML = "<p>No se pudo cargar la agenda.</p>";
+    }
+  }
+
+  // mensajes que el taller manda con plantillas aprobadas por Meta, fuera de la charla con la IA
+  const PLANTILLAS = {
+    confirmar: r => `AC Motors: confirmamos el ingreso de tu ${r.auto} el ${r.dia}, en la franja de ${r.franja}, en Prat Norte 0486. Si no podés venir, avisanos por acá con 12 horas de anticipación.`,
+    recordatorio: r => `Recordatorio de AC Motors: te esperamos con tu ${r.auto} el ${r.dia}, en la franja de ${r.franja}, en Prat Norte 0486. Si no podés venir, avisanos por acá.`,
+    listo: r => `AC Motors: ¡tu ${r.auto} ya está listo para retirar! Te esperamos de lunes a viernes de 8:30 a 17:30 y los sábados de 9:00 a 13:00. Cualquier duda, escribinos por acá.`,
+  };
+
+  function mandarPlantilla(tipo, r) {
+    const texto = PLANTILLAS[tipo](r);
+    const d = document.createElement("div");
+    d.className = "msg bot plantilla";
+    const etiqueta = document.createElement("small");
+    etiqueta.textContent = "Mensaje automático del taller";
+    d.append(etiqueta, document.createTextNode(texto));
+    chat.appendChild(d);
+    chat.scrollTop = chat.scrollHeight;
+    historial.push({ role: "assistant", content: texto });
+  }
+
+  function mostrarTurnos() {
+    const cont = document.getElementById("turnos");
+    if (!reservas.length) { cont.innerHTML = "<p>Todavía no hay turnos.</p>"; return; }
+    cont.innerHTML = "";
+    for (const r of reservas) {
+      const d = document.createElement("div");
+      d.className = "turno";
+      const estado = document.createElement("span");
+      estado.className = "estado" + (r.estado === "confirmado" ? " ok" : "");
+      estado.textContent = r.estado === "confirmado" ? "Confirmado" : "Pendiente";
+      const cuando = document.createElement("b");
+      cuando.textContent = `${r.dia}, ${r.franja}`;
+      const quien = document.createElement("div");
+      quien.textContent = `${r.nombre} · ${r.auto}`;
+      const motivo = document.createElement("div");
+      motivo.textContent = r.motivo;
+      const acciones = document.createElement("div");
+      acciones.className = "acciones";
+      const boton = (texto, tipo, habilitado, principal) => {
+        const b = document.createElement("button");
+        b.textContent = texto;
+        b.disabled = !habilitado;
+        if (principal) b.className = "principal";
+        b.addEventListener("click", () => {
+          if (tipo === "confirmar") { r.estado = "confirmado"; guardarReservas(); mostrarTurnos(); }
+          mandarPlantilla(tipo, r);
+        });
+        acciones.appendChild(b);
+      };
+      const confirmado = r.estado === "confirmado";
+      boton("Confirmar turno", "confirmar", !confirmado, !confirmado);
+      boton("Recordatorio", "recordatorio", confirmado, false);
+      boton("Auto listo", "listo", confirmado, false);
+      d.append(estado, cuando, quien, motivo, acciones);
+      cont.appendChild(d);
+    }
+  }
 
   function bloquear(mensaje) {
     codigo = "";
@@ -144,6 +262,8 @@
       try { sessionStorage.setItem("codigo-demo", codigo); } catch {}
       aviso.textContent = "";
       candado.hidden = true;
+      cargarAgenda();
+      mostrarTurnos();
       entrada.focus();
     } catch {
       aviso.textContent = "No se pudo conectar. Probá de nuevo.";
@@ -170,7 +290,7 @@
       const r = await fetch(API, {
         method: "POST",
         headers: { "Content-Type": "application/json", "X-Codigo": codigo },
-        body: JSON.stringify({ historial }),
+        body: JSON.stringify({ historial, reservas: fechasPedidas() }),
       });
       const datos = await r.json();
       esperando.remove();
@@ -187,6 +307,12 @@
           await new Promise(res => setTimeout(res, 450));
         }
         if (datos.resumen) mostrarResumen(datos.resumen);
+        if (datos.reserva) {
+          reservas.push(datos.reserva);
+          guardarReservas();
+          mostrarTurnos();
+          cargarAgenda();
+        }
       }
     } catch {
       esperando.remove();
@@ -212,9 +338,19 @@
   document.querySelectorAll(".atajos button").forEach(b => b.addEventListener("click", () => enviar(b.textContent)));
   document.getElementById("reiniciar").addEventListener("click", () => {
     historial = [];
+    reservas = [];
+    guardarReservas();
     chat.innerHTML = "";
     document.getElementById("resumenes").innerHTML = "<p>Todavía no hay pedidos.</p>";
+    mostrarTurnos();
+    cargarAgenda();
   });
+
+  if (codigo) {
+    candado.hidden = true;
+    cargarAgenda();
+    mostrarTurnos();
+  }
 </script>
 </body>
 </html>
