@@ -13,7 +13,7 @@ if (existsSync(output)) {
 }
 mkdirSync(output, { recursive: true });
 
-const directories = new Set(['assets', 'automatizaciones-ia', 'bots-ia', 'despertar', 'diseno-grafico', 'diseno-web', 'libros', 'marketing-digital', 'verificacion', 'lead-magnet']);
+const directories = new Set(['assets', 'automatizaciones-ia', 'bots-ia', 'despertar', 'diseno-grafico', 'diseno-web', 'libros', 'marketing-digital', 'verificacion', 'lead-magnet', 'demo-ac-motors-a2f56e']);
 const rootFiles = new Set(['CNAME', 'index.html', 'site.js', 'script.js', 'home-3d.js', 'styles.css', 'logo.png', 'logo-dark.png', 'og-image.png', 'robots.txt', 'sitemap.xml']);
 const publicExtension = /\.(html|css|js|png|jpe?g|webp|svg|gif|ico|pdf|woff2?|ttf|otf|txt|xml)$/i;
 const files = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean)
@@ -40,7 +40,7 @@ function hardenHtml(source, file) {
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
     "img-src 'self' data: https://*.clarity.ms https://c.bing.com",
-    "connect-src 'self' https://api.tuimagenstudios.com https://api.web3forms.com https://*.clarity.ms https://c.bing.com",
+    "connect-src 'self' https://api.tuimagenstudios.com https://ac-motors-demo.tuimagenstudio.workers.dev https://api.web3forms.com https://*.clarity.ms https://c.bing.com",
     "object-src 'none'", "base-uri 'none'", "frame-src 'none'",
     "form-action 'self' https://api.web3forms.com", 'upgrade-insecure-requests'
   ].join('; ');
