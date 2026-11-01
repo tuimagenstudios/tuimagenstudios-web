@@ -139,11 +139,11 @@
       <span>Волочаевская 87/1 · 556-966</span>
     </div>
   </div>
-  <h2>Panel del operador</h2>
-  <p>Aquí llegan los pedidos que la asistente deja listos (el cliente no ve esta tarjeta). El operador los confirma y le avisa al cliente con un mensaje automático.</p>
-  <div id="pedidos"><p>Todavía no hay pedidos. Probá con «Хочу осетинский с мясом…».</p></div>
+  <h2>Панель оператора</h2>
+  <p>Сюда приходят заказы, которые собрала помощница (клиент эту карточку не видит). Оператор подтверждает заказ, и клиент получает автоматическое сообщение.</p>
+  <div id="pedidos"><p>Заказов пока нет. Попробуйте пример «Хочу осетинский с мясом…».</p></div>
   <button class="reiniciar" id="reiniciar">Начать заново</button>
-  <p class="nota">Demo para «Пироги с историей», preparada por Tuimagen Studios. Los precios y zonas salen de pies-story.ru (01-11-2026). Algunos datos operativos son de ejemplo hasta recibir la анкета. No se procesan pedidos ni pagos reales.</p>
+  <p class="nota">Демо для «Пироги с историей» от Tuimagen Studios. Цены и зоны доставки взяты с pies-story.ru (01.11.2026). Часть рабочих данных пока примерная — уточним по вашей анкете. Настоящие заказы и оплаты не обрабатываются.</p>
 </aside>
 <script>
   const WORKER = "https://pies-story-demo.tuimagenstudio.workers.dev";
@@ -201,23 +201,23 @@
     d.className = "pedido";
     const estado = document.createElement("span");
     estado.className = "estado";
-    estado.textContent = "Nuevo";
+    estado.textContent = "Новый";
     const hora = document.createElement("div");
     hora.className = "hora";
-    hora.textContent = "Recibido " + new Date().toLocaleTimeString("es", { hour: "2-digit", minute: "2-digit" });
+    hora.textContent = "Получен в " + new Date().toLocaleTimeString("ru", { hour: "2-digit", minute: "2-digit" });
     const pre = document.createElement("pre");
     pre.textContent = texto;
     const acciones = document.createElement("div");
     acciones.className = "acciones";
     const confirmar = document.createElement("button");
     confirmar.className = "principal";
-    confirmar.textContent = "Confirmar pedido";
+    confirmar.textContent = "Подтвердить заказ";
     const camino = document.createElement("button");
-    camino.textContent = "Repartidor en camino";
+    camino.textContent = "Курьер выехал";
     camino.disabled = true;
     confirmar.addEventListener("click", () => {
       estado.className = "estado ok";
-      estado.textContent = "Confirmado";
+      estado.textContent = "Подтверждён";
       confirmar.disabled = true;
       camino.disabled = false;
       mandarPlantilla("confirmar");
@@ -304,7 +304,7 @@
   document.getElementById("reiniciar").addEventListener("click", () => {
     historial = [];
     bienvenida();
-    document.getElementById("pedidos").innerHTML = "<p>Todavía no hay pedidos. Probá con «Хочу осетинский с мясом…».</p>";
+    document.getElementById("pedidos").innerHTML = "<p>Заказов пока нет. Попробуйте пример «Хочу осетинский с мясом…».</p>";
   });
 
   bienvenida();
