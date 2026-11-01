@@ -39,7 +39,7 @@ function hardenHtml(source, file) {
     "script-src-attr 'none'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "img-src 'self' data: https://*.clarity.ms https://c.bing.com",
+    "img-src 'self' data: https://*.clarity.ms https://c.bing.com https://pies-story.ru",
     "connect-src 'self' https://api.tuimagenstudios.com https://ac-motors-demo.tuimagenstudio.workers.dev https://pies-story-demo.tuimagenstudio.workers.dev https://api.web3forms.com https://*.clarity.ms https://c.bing.com",
     "object-src 'none'", "base-uri 'none'", "frame-src 'none'",
     "form-action 'self' https://api.web3forms.com", 'upgrade-insecure-requests'

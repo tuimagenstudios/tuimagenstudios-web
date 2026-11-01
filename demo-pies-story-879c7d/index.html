@@ -74,6 +74,14 @@
   .pedido button:disabled { opacity: .4; cursor: default; }
   .reiniciar { margin-top: 6px; background: transparent; color: var(--suave); border: 1px solid var(--borde);
                border-radius: 10px; padding: 7px 12px; cursor: pointer; font-family: inherit; }
+  .promos { margin-top: 18px; }
+  .promos h2 { display: flex; justify-content: space-between; align-items: baseline; }
+  .promos h2 small { font-family: Lato, sans-serif; font-size: 11px; font-weight: 400; color: var(--suave); }
+  #banners { display: flex; flex-direction: column; gap: 10px; }
+  #banners a { display: block; border-radius: 14px; overflow: hidden; border: 1px solid var(--borde);
+               box-shadow: 0 2px 6px #30261f14; transition: transform .15s; }
+  #banners a:hover { transform: translateY(-2px); }
+  #banners img { display: block; width: 100%; height: auto; aspect-ratio: 1280 / 397; object-fit: cover; background: var(--melocoton); }
   .nota { font-size: 11.5px; color: var(--suave); border-top: 1px solid var(--borde); margin-top: 16px; padding-top: 10px; line-height: 1.5; }
   @media (max-width: 820px) {
     body { padding: 0; height: auto; flex-direction: column; gap: 0; }
@@ -121,6 +129,11 @@
   <p>Сюда приходят заказы, которые собрала помощница (клиент эту карточку не видит). Оператор подтверждает заказ, и клиент получает автоматическое сообщение.</p>
   <div id="pedidos"><p>Заказов пока нет. Попробуйте пример «Хочу осетинский с мясом…».</p></div>
   <button class="reiniciar" id="reiniciar">Начать заново</button>
+  <section class="promos">
+    <h2>Акции и новинки <small id="banners-hora"></small></h2>
+    <p>Баннеры с главной страницы pies-story.ru. Когда вы меняете баннер на сайте, он обновляется и здесь автоматически.</p>
+    <div id="banners"><p>Загружаем…</p></div>
+  </section>
   <p class="nota">Демо для «Пироги с историей» от Tuimagen Studios. Цены и зоны доставки взяты с pies-story.ru (01.11.2026). Часть рабочих данных пока примерная — уточним по вашей анкете. Настоящие заказы и оплаты не обрабатываются.</p>
 </aside>
 <script>
@@ -259,7 +272,35 @@
     document.getElementById("pedidos").innerHTML = "<p>Заказов пока нет. Попробуйте пример «Хочу осетинский с мясом…».</p>";
   });
 
+  // banners de la portada de pies-story.ru, servidos por el Worker (se actualizan solos)
+  async function cargarBanners() {
+    const cont = document.getElementById("banners");
+    try {
+      const r = await fetch(WORKER + "/promos", { cache: "no-cache" });
+      const datos = await r.json();
+      if (!r.ok || !datos.banners?.length) throw new Error();
+      cont.innerHTML = "";
+      for (const b of datos.banners) {
+        const a = document.createElement("a");
+        a.href = b.enlace || "https://pies-story.ru/";
+        a.target = "_blank";
+        a.rel = "noopener";
+        const img = document.createElement("img");
+        img.src = b.imagen;
+        img.alt = "Баннер «Пироги с историей»";
+        img.loading = "lazy";
+        a.appendChild(img);
+        cont.appendChild(a);
+      }
+      const hora = new Date(datos.actualizado).toLocaleTimeString("ru", { hour: "2-digit", minute: "2-digit" });
+      document.getElementById("banners-hora").textContent = "обновлено в " + hora;
+    } catch {
+      cont.innerHTML = "<p>Не удалось загрузить баннеры с сайта.</p>";
+    }
+  }
+
   bienvenida();
+  cargarBanners();
 </script>
 </body>
 </html>
