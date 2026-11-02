@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex, follow">
+  <title>Escribinos · Tuimagen Studios</title>
+  <meta name="description" content="Diseño, marketing e IA para marcas con alma y dirección. Escribinos por WhatsApp o chateá acá con nuestro asistente.">
+  <link rel="canonical" href="https://tuimagenstudios.com/hablemos/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Tuimagenstudios">
+  <meta property="og:title" content="Escribinos por WhatsApp · Tuimagen Studios">
+  <meta property="og:description" content="Diseño, marketing e IA para marcas con alma y dirección. Contanos tu idea y te respondemos al instante.">
+  <meta property="og:url" content="https://tuimagenstudios.com/hablemos/">
+  <meta property="og:image" content="https://tuimagenstudios.com/hablemos/tarjeta-hablemos.jpg">
+  <meta property="og:image:secure_url" content="https://tuimagenstudios.com/hablemos/tarjeta-hablemos.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1080">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Escribinos por WhatsApp a Tuimagen Studios">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Escribinos por WhatsApp · Tuimagen Studios">
+  <meta name="twitter:description" content="Diseño, marketing e IA para marcas con alma y dirección.">
+  <meta name="twitter:image" content="https://tuimagenstudios.com/hablemos/tarjeta-hablemos.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="https://tuimagenstudios.com/assets/brand/favicon.svg">
+  <meta name="theme-color" content="#05091a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --noche: #05091a; --cian: #00e0ff; --texto: #f2f8ff; --tenue: #9ab0cd; }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      min-height: 100vh; display: grid; place-items: center; padding: 32px 20px;
+      background: var(--noche); color: var(--texto); font-family: Manrope, system-ui, sans-serif; text-align: center;
+      overflow-x: hidden; position: relative;
+    }
+    body::before, body::after { content: ''; position: fixed; border-radius: 50%; filter: blur(90px); opacity: .55; pointer-events: none; }
+    body::before { width: 520px; height: 520px; left: -160px; top: -180px; background: radial-gradient(circle, rgba(0, 224, 255, .6), transparent 70%); }
+    body::after { width: 620px; height: 620px; right: -220px; bottom: -240px; background: radial-gradient(circle, rgba(46, 92, 255, .55), transparent 70%); }
+    .grilla {
+      position: fixed; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(154, 176, 205, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(154, 176, 205, .07) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: radial-gradient(ellipse at center, #000 35%, transparent 78%);
+    }
+    main { position: relative; max-width: 440px; animation: entrar .6s cubic-bezier(.2, .9, .3, 1); }
+    .avatar {
+      width: 168px; height: 168px; border-radius: 50%; display: block; margin: 0 auto 26px; object-fit: cover;
+      box-shadow: 0 0 0 5px var(--cian), 0 0 60px rgba(0, 224, 255, .55);
+    }
+    .marca { font-size: 13px; letter-spacing: .14em; color: var(--cian); font-weight: 600; margin: 0 0 10px; }
+    h1 { font-size: clamp(30px, 8vw, 40px); line-height: 1.08; letter-spacing: -.02em; margin: 0 0 14px; font-weight: 800; }
+    h1 span { background: linear-gradient(90deg, var(--cian), #7fb4ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    p { color: var(--tenue); margin: 0 0 30px; font-size: 16px; line-height: 1.55; }
+    .botones { display: grid; gap: 12px; }
+    .btn {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 16px 22px; border-radius: 999px; font-weight: 800; font-size: 16px; text-decoration: none;
+      transition: transform .15s, box-shadow .2s;
+    }
+    .btn svg { width: 22px; height: 22px; fill: currentColor; }
+    .btn-wa { background: var(--cian); color: var(--noche); box-shadow: 0 12px 34px rgba(0, 224, 255, .4); }
+    .btn-web { background: rgba(8, 18, 45, .8); color: var(--texto); border: 1px solid rgba(0, 224, 255, .45); }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-wa:hover { box-shadow: 0 16px 42px rgba(0, 224, 255, .55); }
+    .nota { font-size: 12.5px; margin: 22px 0 0; }
+    .nota a { color: var(--tenue); }
+    @keyframes entrar { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <div class="grilla" aria-hidden="true"></div>
+  <main>
+    <img class="avatar" src="tarjeta-avatar.jpg" alt="Tuimagen Studios" width="168" height="168">
+    <p class="marca">TUIMAGEN STUDIOS</p>
+    <h1>Contanos tu idea, <span>te respondemos al instante.</span></h1>
+    <p>Diseño, marketing e IA para marcas con alma y dirección. Elegí cómo preferís hablar con nosotros.</p>
+    <div class="botones">
+      <a class="btn btn-wa" href="https://wa.me/5492281375390?text=Hola%20Tuimagen%20Studios%2C%20quiero%20hacer%20una%20consulta.">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+        Abrir WhatsApp
+      </a>
+      <a class="btn btn-web" href="https://bot-tuimagen.tuimagenstudio.workers.dev/">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2zm3 5v2h10V9zm0 4v2h7v-2z"/></svg>
+        Chatear acá con el asistente
+      </a>
+    </div>
+    <p class="nota"><a href="https://tuimagenstudios.com/">tuimagenstudios.com</a></p>
+  </main>
+</body>
+</html>
