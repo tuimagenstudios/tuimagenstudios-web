@@ -68,7 +68,7 @@ Tu Acto 1 — la auditoría personalizada de tu negocio ([URL que ingresó]) —
 Mientras tanto, leé el Acto 2 con calma. Te va a marcar el rumbo.
 
 Cualquier cosa que surja:
-WhatsApp: +54 2281 375390
+WhatsApp: +54 9 2281 375390
 
 Despertando con vos,
 Naty

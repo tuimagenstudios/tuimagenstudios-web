@@ -34,7 +34,7 @@ Estado tecnico esperado:
 - Las paginas internas cargan `../styles.css` y `../site.js`.
 - Las paginas internas no cargan Three.js, `home-3d.js` ni `script.js`.
 - La home conserva la escena 3D y carga Three.js local desde `assets/vendor/three.module.min.js`.
-- El contacto principal usa WhatsApp: `https://wa.me/542281375390`.
+- El contacto principal usa WhatsApp: `https://wa.me/5492281375390`.
 
 ## 2. Checklist manual para Google Search Console
 

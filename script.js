@@ -14,7 +14,7 @@ const parallaxLayers = [...document.querySelectorAll('.parallax-layer')]
 const whatsappLinks = [...document.querySelectorAll('[data-whatsapp-link]')]
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const TUIMAGEN_WHATSAPP_NUMBER = '542281375390'
+const TUIMAGEN_WHATSAPP_NUMBER = '5492281375390'
 const pointer = { x: 0, y: 0 }
 let scrollProgress = 0
 
