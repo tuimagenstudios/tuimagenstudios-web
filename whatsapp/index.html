@@ -91,5 +91,15 @@
     </div>
     <p class="nota"><a href="https://tuimagenstudios.com/">tuimagenstudios.com</a></p>
   </main>
+  <script>
+    // Si el botón de origen trae un mensaje (?texto=...), se pasa listo a WhatsApp y al chat web.
+    (function () {
+      var texto = new URLSearchParams(location.search).get('texto');
+      if (!texto) return;
+      texto = texto.slice(0, 1000);
+      document.querySelector('.btn-wa').href = 'https://wa.me/5492281375390?text=' + encodeURIComponent(texto);
+      document.querySelector('.btn-web').href = 'https://bot-tuimagen.tuimagenstudio.workers.dev/?texto=' + encodeURIComponent(texto);
+    })();
+  </script>
 </body>
 </html>

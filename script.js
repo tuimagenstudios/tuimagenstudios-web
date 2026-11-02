@@ -142,7 +142,8 @@ document.querySelectorAll('.btn, .project-card a').forEach((item) => {
 
 function buildWhatsAppUrl(message) {
   const encodedMessage = encodeURIComponent(message)
-  return `https://wa.me/${TUIMAGEN_WHATSAPP_NUMBER}?text=${encodedMessage}`
+  // Lleva a la página donde cada persona elige WhatsApp o el chat web, con el mensaje listo.
+  return `https://tuimagenstudios.com/hablemos/?texto=${encodedMessage}`
 }
 
 whatsappLinks.forEach((link) => {
