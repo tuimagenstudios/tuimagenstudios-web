@@ -13,7 +13,7 @@ if (existsSync(output)) {
 }
 mkdirSync(output, { recursive: true });
 
-const directories = new Set(['assets', 'automatizaciones-ia', 'bots-ia', 'despertar', 'diseno-grafico', 'diseno-web', 'libros', 'marketing-digital', 'verificacion', 'lead-magnet', 'demo-ac-motors-a2f56e', 'demo-pies-story-879c7d']);
+const directories = new Set(['assets', 'automatizaciones-ia', 'bots-ia', 'despertar', 'diseno-grafico', 'diseno-web', 'libros', 'marketing-digital', 'verificacion', 'lead-magnet', 'demo-ac-motors-a2f56e', 'demo-pies-story-879c7d', 'whatsapp']);
 const rootFiles = new Set(['CNAME', 'index.html', 'site.js', 'script.js', 'home-3d.js', 'styles.css', 'logo.png', 'logo-dark.png', 'og-image.png', 'robots.txt', 'sitemap.xml']);
 const publicExtension = /\.(html|css|js|png|jpe?g|webp|svg|gif|ico|pdf|woff2?|ttf|otf|txt|xml)$/i;
 const files = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean)
