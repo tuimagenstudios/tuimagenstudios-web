@@ -26,7 +26,7 @@ jobs:
         with:
           node-version: 24
       - name: Build and verify protected public pages
-        run: node --test scripts/test/pages-security.test.mjs
+        run: node --test scripts/test/*.test.mjs
       - uses: actions/configure-pages@v4
         with:
           enablement: true

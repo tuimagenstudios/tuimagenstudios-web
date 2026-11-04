@@ -35,18 +35,21 @@ function hardenHtml(source, file) {
   }
   const policy = [
     "default-src 'self'",
-    `script-src 'self' https://*.clarity.ms ${[...hashes].sort().join(' ')}`.trim(),
+    `script-src 'self' https://*.clarity.ms https://www.googletagmanager.com https://www.googleadservices.com https://www.google.com ${[...hashes].sort().join(' ')}`.trim(),
     "script-src-attr 'none'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "img-src 'self' data: https://*.clarity.ms https://c.bing.com https://pies-story.ru",
-    "connect-src 'self' https://api.tuimagenstudios.com https://ac-motors-demo.tuimagenstudio.workers.dev https://pies-story-demo.tuimagenstudio.workers.dev https://api.web3forms.com https://*.clarity.ms https://c.bing.com",
-    "object-src 'none'", "base-uri 'none'", "frame-src 'none'",
+    "img-src 'self' data: https://*.clarity.ms https://c.bing.com https://pies-story.ru https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.ar",
+    "connect-src 'self' https://api.tuimagenstudios.com https://ac-motors-demo.tuimagenstudio.workers.dev https://pies-story-demo.tuimagenstudio.workers.dev https://api.web3forms.com https://*.clarity.ms https://c.bing.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.ar https://ad.doubleclick.net",
+    "object-src 'none'", "base-uri 'none'", "frame-src https://www.googletagmanager.com",
     "form-action 'self' https://api.web3forms.com", 'upgrade-insecure-requests'
   ].join('; ');
   // frame-ancestors, X-Frame-Options, HSTS and nosniff cannot be enforced by
   // HTML meta tags. Do not advertise unsupported HTTP protections on Pages.
-  const meta = `<meta http-equiv="Content-Security-Policy" content="${policy}">\n<meta name="referrer" content="strict-origin-when-cross-origin">`;
+  // Local bootstrap runs before any remote script, sanitizes contact text and
+  // only loads Google after explicit consent. CSP hosts follow Google's guide:
+  // https://developers.google.com/tag-platform/security/guides/csp
+  const meta = `<meta http-equiv="Content-Security-Policy" content="${policy}">\n<meta name="referrer" content="strict-origin-when-cross-origin">\n<script src="/assets/ads-measurement.js"></script>\n<link rel="stylesheet" href="/assets/ads-measurement.css">`;
   const charset = /<meta\b[^>]*charset\s*=[^>]*>/i;
   return charset.test(html) ? html.replace(charset, match => `${match}\n${meta}`)
     : html.replace(/<head\b[^>]*>/i, match => `${match}\n<meta charset="utf-8">\n${meta}`);

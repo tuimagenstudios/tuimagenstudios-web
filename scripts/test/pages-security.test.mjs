@@ -60,3 +60,20 @@ test('public routes, downloads, Three.js, checkout and the custom domain survive
   const leadPolicy = policyFrom(readFileSync(path.join(output, 'despertar/index.html'), 'utf8'));
   assert.ok(leadPolicy.includes('https://api.web3forms.com'));
 });
+
+test('all published pages initialize local consent before other scripts and permit only named Ads hosts', () => {
+  requireBuild();
+  for (const file of readdirSync(output, { recursive: true }).filter(file => file.endsWith('.html'))) {
+    const html = readFileSync(path.join(output, file), 'utf8');
+    assert.equal((html.match(/src="\/assets\/ads-measurement.js"/g) || []).length, 1, file);
+    assert.ok(html.indexOf('http-equiv="Content-Security-Policy"') < html.indexOf('/assets/ads-measurement.js'));
+    assert.match(html, /<link rel="stylesheet" href="\/assets\/ads-measurement.css">/);
+    const policy = policyFrom(html);
+    for (const host of ['www.googletagmanager.com', 'www.googleadservices.com', 'www.google.com', 'googleads.g.doubleclick.net', 'pagead2.googlesyndication.com']) {
+      assert.ok(policy.includes('https://' + host), host);
+    }
+    assert.match(policy, /frame-src https:\/\/www\.googletagmanager\.com(?:;|$)/);
+    assert.doesNotMatch(policy, /https:\/\/\*\.(?:google|doubleclick|googlesyndication)|unsafe-eval/);
+  }
+  for (const asset of ['assets/ads-measurement.js', 'assets/ads-measurement.css']) assert.ok(existsSync(path.join(output, asset)), asset);
+});

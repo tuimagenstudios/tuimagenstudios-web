@@ -1,0 +1,18 @@
+.ads-consent-panel[hidden] { display: none; }
+.ads-consent-panel {
+  position: fixed; z-index: 2147483646; bottom: 62px; left: 16px;
+  box-sizing: border-box; width: min(460px, calc(100vw - 32px));
+  max-height: calc(100dvh - 100px); overflow: auto; padding: 18px;
+  background: #08122d; color: #f2f8ff; border: 1px solid #7fb4ff;
+  border-radius: 12px; box-shadow: 0 6px 28px #0008;
+  font: 14px/1.5 system-ui, sans-serif; text-align: left;
+}
+.ads-consent-panel p { margin: 0 0 12px; color: #f2f8ff; font: inherit; }
+.ads-consent-panel button, .ads-consent-settings {
+  appearance: none; border: 1px solid #7fb4ff; border-radius: 7px;
+  background: #08122d; color: #f2f8ff; padding: 10px 12px;
+  font: 600 13px/1.4 system-ui, sans-serif; cursor: pointer;
+}
+.ads-consent-panel button { margin: 3px 8px 3px 0; }
+.ads-consent-settings { position: fixed; bottom: 12px; left: 16px; z-index: 2147483645; }
+.ads-consent-panel button:focus-visible, .ads-consent-settings:focus-visible { outline: 3px solid #00e0ff; outline-offset: 3px; }
