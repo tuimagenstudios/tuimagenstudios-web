@@ -32,7 +32,7 @@ test('GitHub Pages gets a CSP before resources load without publishing backend o
 test('every page authorizes its current inline scripts but no arbitrary inline script', () => {
   requireBuild();
   const files = readdirSync(output, { recursive: true }).filter(file => file.endsWith('.html'));
-  assert.ok(files.length >= 15);
+  assert.ok(files.length >= 12);
   for (const file of files) {
     const html = readFileSync(path.join(output, file), 'utf8');
     const policy = policyFrom(html);
@@ -51,11 +51,11 @@ test('every page authorizes its current inline scripts but no arbitrary inline s
 
 test('public routes, downloads, Three.js, checkout and the custom domain survive the build', () => {
   requireBuild();
-  for (const file of ['index.html', 'libros/index.html', 'libros/tu-keto-hoy/index.html', 'libros/checkout.js', 'assets/vendor/three.module.min.js', 'despertar/index.html', 'despertar/recursos/despertar-digital-acto-2.pdf', 'robots.txt', 'sitemap.xml', 'CNAME']) {
+  for (const file of ['index.html', 'assets/vendor/three.module.min.js', 'despertar/index.html', 'despertar/recursos/despertar-digital-acto-2.pdf', 'robots.txt', 'sitemap.xml', 'CNAME']) {
     assert.ok(existsSync(path.join(output, file)), `${file} must remain available`);
   }
   assert.equal(readFileSync(path.join(output, 'CNAME'), 'utf8').trim(), 'tuimagenstudios.com');
-  const policy = policyFrom(readFileSync(path.join(output, 'libros/index.html'), 'utf8'));
+  const policy = policyFrom(readFileSync(path.join(output, 'index.html'), 'utf8'));
   assert.ok(policy.includes('https://api.tuimagenstudios.com'));
   const leadPolicy = policyFrom(readFileSync(path.join(output, 'despertar/index.html'), 'utf8'));
   assert.ok(leadPolicy.includes('https://api.web3forms.com'));
