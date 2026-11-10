@@ -1,0 +1,497 @@
+/* Estilos propios de la página de Publicidad en Google Ads (PPC).
+   Se apoya en ../styles.css y solo agrega los bloques que esa hoja no tiene. */
+
+.ppc-page {
+  --ppc-green: #00ff88;
+  --ppc-violet: #a855f7;
+}
+
+/* Vista de anuncio en el hero */
+.ppc-ad-visual {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(rgba(0, 224, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 224, 255, 0.05) 1px, transparent 1px),
+    rgba(9, 22, 52, 0.58);
+  background-size: 34px 34px;
+  box-shadow: var(--shadow), 0 0 60px rgba(0, 224, 255, 0.1);
+}
+
+.ppc-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  border: 1px solid var(--cyan-line);
+  background: rgba(2, 5, 18, 0.72);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+}
+
+.ppc-search i {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--cyan);
+  border-radius: 50%;
+  flex: none;
+}
+
+.ppc-ad {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  background: rgba(2, 5, 18, 0.6);
+}
+
+.ppc-ad b {
+  display: block;
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.ppc-ad strong {
+  display: block;
+  margin: 8px 0 6px;
+  color: var(--cyan);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.ppc-ad p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.ppc-ad-muted {
+  opacity: 0.55;
+}
+
+.ppc-signals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.ppc-signals span {
+  padding: 12px;
+  border: 1px solid var(--line);
+  background: rgba(9, 22, 52, 0.7);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.ppc-signals span em {
+  display: block;
+  margin-top: 6px;
+  color: var(--ppc-green);
+  font-style: normal;
+  font-size: 1rem;
+}
+
+/* Comparación */
+.ppc-compare {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.ppc-compare-col {
+  position: relative;
+  padding: 26px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.ppc-compare-col.is-us {
+  border-color: var(--cyan-line);
+  box-shadow: 0 0 60px rgba(0, 224, 255, 0.08);
+}
+
+.ppc-compare-col h3 {
+  margin: 0 0 18px;
+}
+
+.ppc-compare-col ul {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ppc-compare-col li {
+  position: relative;
+  padding-left: 28px;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ppc-compare-col li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  color: var(--dim);
+  font-family: var(--font-mono);
+}
+
+.ppc-compare-col.is-us li {
+  color: var(--text);
+}
+
+.ppc-compare-col.is-us li::before {
+  content: "✓";
+  color: var(--ppc-green);
+}
+
+/* Tipos de campaña */
+.ppc-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.ppc-types span {
+  border: 1px solid var(--cyan-line);
+  background: var(--cyan-soft);
+  color: var(--text);
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+}
+
+/* Planes */
+.ppc-plans {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.ppc-plan {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.ppc-plan.is-featured {
+  border-color: var(--cyan);
+  box-shadow: 0 0 70px rgba(0, 224, 255, 0.14);
+}
+
+.ppc-plan h3 {
+  margin: 0;
+}
+
+.ppc-plan .plan-for {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.ppc-plan .plan-price {
+  margin: 0;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.ppc-plan ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  flex: 1;
+}
+
+.ppc-plan li {
+  position: relative;
+  padding-left: 24px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.ppc-plan li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+}
+
+.ppc-plan .plan-tag {
+  position: absolute;
+  top: -12px;
+  left: 24px;
+  padding: 4px 10px;
+  background: var(--cyan);
+  color: #03101f;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  text-transform: uppercase;
+}
+
+.ppc-note {
+  margin: 22px 0 0;
+  color: var(--dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Métricas del reporte */
+.ppc-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.ppc-metric {
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+
+.ppc-metric b {
+  display: block;
+  color: var(--cyan);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.ppc-metric strong {
+  display: block;
+  margin: 10px 0 8px;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+.ppc-metric p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+@media (max-width: 1080px) {
+  .ppc-plans,
+  .ppc-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 780px) {
+  .ppc-compare,
+  .ppc-plans,
+  .ppc-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .ppc-plan.is-featured {
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 420px) {
+  .ppc-signals {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ppc-page .section-body p + p {
+  margin-top: 16px;
+}
+
+/* ===== Movimiento ===== */
+.ppc-page .service-hero {
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.ppc-page .service-hero::before {
+  background:
+    radial-gradient(circle at 80% 30%, rgba(0, 224, 255, 0.12), transparent 36%),
+    linear-gradient(90deg, rgba(5, 9, 26, 0.9) 0%, rgba(5, 9, 26, 0.62) 48%, rgba(5, 9, 26, 0.3) 100%);
+}
+
+.ppc-canvas {
+  z-index: -2;
+  opacity: 1;
+}
+
+@media (max-width: 780px) {
+  .ppc-page .service-hero::before {
+    background: linear-gradient(180deg, rgba(5, 9, 26, 0.55), rgba(5, 9, 26, 0.88) 55%);
+  }
+}
+
+/* Cursor que parpadea en la búsqueda */
+.ppc-caret {
+  width: 2px;
+  height: 1.05em;
+  margin-left: -6px;
+  background: var(--cyan);
+  animation: ppc-blink 1s steps(1) infinite;
+}
+
+@keyframes ppc-blink {
+  50% { opacity: 0; }
+}
+
+/* El anuncio se ilumina cuando la búsqueda coincide */
+.ppc-ad-main {
+  transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.ppc-ad-main.is-match {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px var(--cyan-line), 0 0 40px rgba(0, 224, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Señales que laten */
+.ppc-motion .ppc-signals em {
+  animation: ppc-float 2.4s ease-in-out infinite;
+}
+
+.ppc-motion .ppc-signals span:nth-child(2) em { animation-delay: 0.4s; }
+.ppc-motion .ppc-signals span:nth-child(3) em { animation-delay: 0.8s; }
+
+@keyframes ppc-float {
+  0%, 100% { transform: translateY(0); text-shadow: none; }
+  50% { transform: translateY(-4px); text-shadow: 0 0 12px var(--ppc-green); }
+}
+
+/* Tipos de campaña: entran uno por uno y brillan */
+.ppc-motion .ppc-types[data-ppc-in] span {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ppc-motion .ppc-types.is-in span {
+  opacity: 1;
+  transform: none;
+  animation: ppc-glow 4s ease-in-out infinite;
+}
+
+.ppc-types span:nth-child(2) { transition-delay: 0.08s; animation-delay: 0.6s; }
+.ppc-types span:nth-child(3) { transition-delay: 0.16s; animation-delay: 1.2s; }
+.ppc-types span:nth-child(4) { transition-delay: 0.24s; animation-delay: 1.8s; }
+.ppc-types span:nth-child(5) { transition-delay: 0.32s; animation-delay: 2.4s; }
+.ppc-types span:nth-child(6) { transition-delay: 0.4s; animation-delay: 3s; }
+
+@keyframes ppc-glow {
+  0%, 70%, 100% { box-shadow: none; }
+  80% { box-shadow: 0 0 22px rgba(0, 224, 255, 0.35); }
+}
+
+/* Comparación: los ✓ aparecen en cascada */
+.ppc-motion .ppc-compare-col.is-us[data-ppc-in] li {
+  opacity: 0;
+  transform: translateX(-12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.ppc-motion .ppc-compare-col.is-us.is-in li {
+  opacity: 1;
+  transform: none;
+}
+
+.ppc-compare-col.is-us li:nth-child(2) { transition-delay: 0.12s; }
+.ppc-compare-col.is-us li:nth-child(3) { transition-delay: 0.24s; }
+.ppc-compare-col.is-us li:nth-child(4) { transition-delay: 0.36s; }
+.ppc-compare-col.is-us li:nth-child(5) { transition-delay: 0.48s; }
+.ppc-compare-col.is-us li:nth-child(6) { transition-delay: 0.6s; }
+
+/* Proceso: una línea de luz recorre los pasos */
+.ppc-steps {
+  position: relative;
+}
+
+.ppc-steps::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--cyan), var(--ppc-green));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) 0.2s;
+}
+
+.ppc-steps.is-in::before {
+  transform: scaleX(1);
+}
+
+/* Resultados: un barrido de luz en cada tarjeta */
+.ppc-metric {
+  position: relative;
+  overflow: hidden;
+}
+
+.ppc-motion .ppc-metrics.is-in .ppc-metric::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 35%, rgba(0, 224, 255, 0.14) 50%, transparent 65%);
+  transform: translateX(-100%);
+  animation: ppc-sweep 5s ease-in-out infinite;
+}
+
+.ppc-metrics .ppc-metric:nth-child(2)::after { animation-delay: 0.5s; }
+.ppc-metrics .ppc-metric:nth-child(3)::after { animation-delay: 1s; }
+.ppc-metrics .ppc-metric:nth-child(4)::after { animation-delay: 1.5s; }
+
+@keyframes ppc-sweep {
+  0% { transform: translateX(-100%); }
+  40%, 100% { transform: translateX(100%); }
+}
+
+/* Plan recomendado: brillo que respira */
+.ppc-motion .ppc-plan.is-featured {
+  animation: ppc-breathe 3.6s ease-in-out infinite;
+}
+
+@keyframes ppc-breathe {
+  0%, 100% { box-shadow: 0 0 50px rgba(0, 224, 255, 0.1); }
+  50% { box-shadow: 0 0 90px rgba(0, 224, 255, 0.26); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ppc-caret,
+  .ppc-signals em,
+  .ppc-types span,
+  .ppc-metric::after,
+  .ppc-plan.is-featured {
+    animation: none !important;
+  }
+}
+
+/* Aire entre títulos y grillas */
+.ppc-page .section-heading + .cards-grid,
+.ppc-page .section-heading + .process-steps,
+.ppc-page .section-heading + .faq-grid {
+  margin-top: 44px;
+}
