@@ -2536,3 +2536,16 @@ h3 {
     padding: 28px 22px;
   }
 }
+
+/* Clientes reales (portada) */
+.clients-heading { margin-top: 56px; }
+.clients-heading h3 { margin: 8px 0 0; font-size: clamp(1.4rem, 3vw, 2rem); color: var(--text); }
+.clients-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; margin-top: 24px; }
+.client-card { display: flex; flex-direction: column; min-height: 0; padding: 0 0 22px; overflow: hidden; text-decoration: none; color: inherit; }
+.client-card img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.client-card span, .client-card h4, .client-card p, .client-card em { padding: 0 22px; }
+.client-card h4 { margin: 8px 0 0; font-size: 1.1rem; color: var(--text); }
+.client-card p { margin: 10px 0 0; font-size: 0.9rem; }
+.client-card em { margin-top: auto; padding-top: 14px; font-style: normal; font-weight: 700; color: var(--cyan); font-size: 0.85rem; }
+@media (max-width: 1000px) { .clients-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .clients-grid { grid-template-columns: 1fr; } }
