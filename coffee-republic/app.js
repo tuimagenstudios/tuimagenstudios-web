@@ -21,7 +21,7 @@ function applyTheme() {
  const theme = selectedTheme || (systemTheme.matches ? "light" : "dark");
  document.documentElement.dataset.theme = theme;
  themeSwitch.setAttribute("aria-pressed", String(theme === "dark"));
- document.querySelector('meta[name="theme-color"]').content = theme === "light" ? "#f8f5eb" : "#183d34";
+ document.querySelector('meta[name="theme-color"]').content = theme === "light" ? "#d5e9de" : "#183d34";
 }
 
 themeSwitch.addEventListener("click", () => {
