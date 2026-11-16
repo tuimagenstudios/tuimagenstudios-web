@@ -233,3 +233,16 @@ select,#search,#cats button,#info,#mediaControls button{background:#203f38;borde
 #photoStatus:empty { display: none; }
 
 #retryMenu { margin: 10px 0; padding: 10px 16px; color: #fffaf0; background: #21493f; border-radius: 10px; }
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .major-section > summary:hover,
+  .drink-group > summary:hover {
+    animation: category-nudge 240ms ease-in-out;
+  }
+}
+
+@keyframes category-nudge {
+  0%, 100% { transform: translateX(0); }
+  30% { transform: translateX(2px); }
+  65% { transform: translateX(-1px); }
+}
