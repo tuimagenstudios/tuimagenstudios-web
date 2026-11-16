@@ -19,7 +19,7 @@ const publicExtension = /\.(html|css|js|png|jpe?g|webp|svg|gif|ico|pdf|woff2?|tt
 const files = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean)
   .filter(file => {
     if (file.split('/').some(segment => segment.startsWith('.') || segment.startsWith('_'))) return false;
-    return (file.startsWith('coffee-republic/') && (publicExtension.test(file) || file === 'coffee-republic/menu.json' || /^coffee-republic\/(motion|media)\/[\w-]+\.mp4$/i.test(file))) || rootFiles.has(file) || /^[a-f0-9]{32}\.txt$/.test(file) ||
+    return (file.startsWith('coffee-republic/') && (publicExtension.test(file) || file === 'coffee-republic/menu.json' || file === 'coffee-republic/carta.webmanifest' || /^coffee-republic\/(motion|media)\/[\w-]+\.mp4$/i.test(file))) || rootFiles.has(file) || /^[a-f0-9]{32}\.txt$/.test(file) ||
       (directories.has(file.split('/')[0]) && publicExtension.test(file));
   });
 

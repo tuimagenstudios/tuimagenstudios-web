@@ -277,3 +277,19 @@ select,#search,#cats button,#info,#mediaControls button{background:#203f38;borde
   25% { opacity: 1; }
   100% { opacity: 0; transform: scale(1.22); }
 }
+
+.coffee-welcome { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .coffee-welcome {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    background: #183d34 url("marca/portada.svg") center / 100% 100% no-repeat;
+    animation: welcome-fade 300ms ease-out 800ms forwards;
+  }
+}
+@keyframes welcome-fade {
+  to { opacity: 0; visibility: hidden; }
+}
