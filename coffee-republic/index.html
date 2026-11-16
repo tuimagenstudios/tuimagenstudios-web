@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="ru" translate="no"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#112724"><meta property="og:title" content="Coffee Republic · Menu"><meta property="og:image" content="https://tuimagenstudios.com/coffee-republic/canva-web/latte-card.jpg"><meta name="twitter:card" content="summary_large_image"><title>Coffee Republic · Menu 4D</title><link rel="icon" href="logo.svg"><link rel="stylesheet" href="style.css?v=porada-cocteles-hd"><script src="ingredients.js?v=cuatro-idiomas" defer></script><script src="app.js?v=carta-editable" defer></script></head>
+<body><main class="shell">
+<header><a class="brand" href="./" aria-label="Coffee Republic"><img src="logo.svg" alt="Coffee Republic"></a><div class="head-tools"><select id="lang" aria-label="Язык меню"><option value="ru" lang="ru" selected>Русский</option><option value="zh" lang="zh">中文</option><option value="es" lang="es">Español</option><option value="en" lang="en">English</option></select></div></header>
+<div class="menu-intro" aria-hidden="true">
+  <video id="introVideo" muted loop playsinline preload="none" poster="canva-web/intro-local.webp?v=central-hd" src="motion/intro-local.mp4?v=central-hd"></video>
+</div>
+<section id="catalog"><h1 id="drawerTitle"></h1><input id="search" type="search"><button id="retryMenu" type="button" hidden></button><div id="results"></div></section>
+<footer id="promociones">
+  <h2 id="promoTitle">Акции</h2>
+  <div class="promo-grid" role="region" aria-labelledby="promoTitle">
+    <img src="canva-web/promo-bonos.webp" width="600" height="800" loading="lazy" lang="ru" alt="Тройное начисление бонусов при первом заказе на сайте Кофе Репаблик">
+    <img src="canva-web/promo-limonadas.webp" width="600" height="768" loading="lazy" lang="ru" alt="Два лимонада в подарок при заказе от 2 000 ₽ на доставку и самовывоз">
+    <img src="canva-web/promo-retiro.webp" width="600" height="768" loading="lazy" lang="ru" alt="Скидка 10% при заказе на самовывоз">
+    <img src="canva-web/promo-envio.webp" width="600" height="768" loading="lazy" lang="ru" alt="Бесплатная доставка по центру города домой или в офис">
+  </div>
+</footer>
+<section id="calificacion" aria-labelledby="reviewTitle">
+  <h2 id="reviewTitle">Как вам у нас?</h2>
+  <div id="reviewStars" role="radiogroup" aria-labelledby="reviewTitle"></div>
+  <div id="reviewPlatforms">
+    <p id="reviewHelp"></p>
+    <a href="https://yandex.ru/maps/org/kofe_repablik/1353015756/reviews/" target="_blank" rel="noopener">Yandex</a>
+    <a href="https://2gis.ru/khabarovsk/search/%D0%9A%D0%BE%D1%84%D0%B5%20%D0%A0%D0%B5%D0%BF%D0%B0%D0%B1%D0%BB%D0%B8%D0%BA%20%D0%9C%D1%83%D1%80%D0%B0%D0%B2%D1%8C%D1%91%D0%B2%D0%B0-%D0%90%D0%BC%D1%83%D1%80%D1%81%D0%BA%D0%BE%D0%B3%D0%BE%2050/firm/70000001017399078/135.069917%2C48.478827/tab/reviews" target="_blank" rel="noopener">2GIS</a>
+  </div>
+</section>
+<section id="foto" class="dish-share" aria-labelledby="photoTitle">
+  <h2 id="photoTitle"></h2>
+  <p id="photoHint"></p>
+  <div class="photo-actions">
+    <button id="takePhoto" type="button"></button>
+    <button id="choosePhoto" type="button"></button>
+  </div>
+  <input id="dishCamera" type="file" accept="image/*" capture="environment" hidden>
+  <input id="dishGallery" type="file" accept="image/*" hidden>
+  <div id="photoResult" hidden>
+    <img id="dishPreview" alt="">
+    <div class="photo-actions">
+      <button id="sharePhoto" type="button" hidden></button>
+      <a id="savePhoto" download></a>
+    </div>
+  </div>
+  <p id="photoStatus" role="status"></p>
+</section>
+</main>
+<dialog id="productView"><button id="backMenu" class="close">×</button>
+<section id="scene" tabindex="0" aria-labelledby="title">
+<div class="silk" aria-hidden="true"></div><div class="shade"></div><div class="product-set" aria-hidden="true"><div class="halo"></div><div class="orbit"></div><div class="plinth"></div><div id="actor"></div><div class="specks"><i>✦</i><i>✧</i><i>✦</i><i>✧</i></div></div>
+<div class="chapter"><span class="live-dot"></span><span id="category"></span></div>
+<div class="copy"><h1 id="title"></h1><p id="description"></p><button id="detail"></button> <button id="extrasButton" hidden></button></div>
+<div class="turn"><button id="prev">‹</button><span id="position"></span><button id="next">›</button></div>
+</section>
+<section class="controls"><div id="sizes"></div><strong id="price"></strong></section>
+</dialog>
+<dialog id="info"><div class="panel"><div class="panel-head"><h2 id="infoTitle"></h2><button class="close">×</button></div><div id="media"></div><p id="recipe"></p><div id="mediaControls"></div></div></dialog>
+<dialog id="extraPanel" aria-labelledby="extraTitle"><form method="dialog" class="panel-head"><h2 id="extraTitle"></h2><button class="close" value="cancel">×</button></form><p id="extraDrink"></p><div id="extraGroups"></div><footer class="extra-foot"><div><small id="totalLabel"></small><strong id="extraTotal" aria-live="polite"></strong></div><button id="applyExtras"></button></footer></dialog>
+</body></html>

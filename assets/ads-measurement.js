@@ -1,6 +1,7 @@
 /* Google Ads basic consent mode. No Google resources load before acceptance. */
 (function () {
   'use strict';
+  if (window.location.pathname.startsWith('/coffee-republic/')) return;
   var tagId = 'AW-18537866471';
   var conversionId = tagId + '/HEUvCNqm5LEdEOfJxYdF';
   var preferenceKey = 'tuimagen-ads-consent-v1';

@@ -19,7 +19,7 @@ const publicExtension = /\.(html|css|js|png|jpe?g|webp|svg|gif|ico|pdf|woff2?|tt
 const files = execFileSync('git', ['ls-files', '-z'], { cwd: root, encoding: 'utf8' }).split('\0').filter(Boolean)
   .filter(file => {
     if (file.split('/').some(segment => segment.startsWith('.') || segment.startsWith('_'))) return false;
-    return rootFiles.has(file) || /^[a-f0-9]{32}\.txt$/.test(file) ||
+    return (file.startsWith('coffee-republic/') && (publicExtension.test(file) || file === 'coffee-republic/menu.json' || /^coffee-republic\/(motion|media)\/[\w-]+\.mp4$/i.test(file))) || rootFiles.has(file) || /^[a-f0-9]{32}\.txt$/.test(file) ||
       (directories.has(file.split('/')[0]) && publicExtension.test(file));
   });
 
@@ -39,7 +39,7 @@ function hardenHtml(source, file) {
     "script-src-attr 'none'",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' data: https://fonts.gstatic.com",
-    "img-src 'self' data: https://*.clarity.ms https://c.bing.com https://pies-story.ru https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.ar",
+    `img-src 'self' data: ${file === 'coffee-republic/index.html' ? 'blob: ' : ''}https://*.clarity.ms https://c.bing.com https://pies-story.ru https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.ar`,
     "connect-src 'self' https://api.tuimagenstudios.com https://ac-motors-demo.tuimagenstudio.workers.dev https://pies-story-demo.tuimagenstudio.workers.dev https://api.web3forms.com https://*.clarity.ms https://c.bing.com https://www.googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://pagead2.googlesyndication.com https://www.google.com https://www.google.com.ar https://ad.doubleclick.net",
     "object-src 'none'", "base-uri 'none'", "frame-src https://www.googletagmanager.com",
     "form-action 'self' https://api.web3forms.com", 'upgrade-insecure-requests'
