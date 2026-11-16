@@ -84,6 +84,21 @@ const barPhotos={
  "Destilados":"whisky"
 };
 const sectionOf=p=>p.drinkSection||p.section;
+$("#results").addEventListener("click", event => {
+  const card = event.target.closest(".major-section > summary, .drink-group > summary");
+  if (!card || reduced.matches) return;
+  const bounds = card.getBoundingClientRect();
+  const x = event.detail ? event.clientX - bounds.left : bounds.width - 32;
+  const y = event.detail ? event.clientY - bounds.top : bounds.height / 2;
+  card.querySelector(".tap-sparkles")?.remove();
+  const sparkles = document.createElement("span");
+  sparkles.className = "tap-sparkles";
+  sparkles.setAttribute("aria-hidden", "true");
+  sparkles.style.left = Math.max(20, Math.min(bounds.width - 20, x)) + "px";
+  sparkles.style.top = Math.max(18, Math.min(bounds.height - 18, y)) + "px";
+  card.append(sparkles);
+  setTimeout(() => sparkles.remove(), 480);
+});
 function majorSection(key,searching){
  const section=document.createElement("details");
  section.className="major-section";section.id=key==="food"?"comida":key;

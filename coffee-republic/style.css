@@ -246,3 +246,34 @@ select,#search,#cats button,#info,#mediaControls button{background:#203f38;borde
   30% { transform: translateX(2px); }
   65% { transform: translateX(-1px); }
 }
+
+.major-section > summary, .drink-group > summary { position: relative; }
+.tap-sparkles {
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  color: #ffe8ad;
+  animation: tap-twinkle 460ms ease-out both;
+}
+.tap-sparkles::before, .tap-sparkles::after {
+  content: "✦";
+  position: absolute;
+  font: 13px/1 sans-serif;
+  left: -14px;
+  top: -13px;
+  text-shadow: 0 0 3px #886735;
+}
+.tap-sparkles::after {
+  left: 6px;
+  top: 1px;
+  font-size: 9px;
+  color: #fff8dd;
+  text-shadow: -13px 6px 0 #efd398, 3px -12px 0 #ffe8ad;
+}
+@keyframes tap-twinkle {
+  0% { opacity: 0; transform: scale(.5); }
+  25% { opacity: 1; }
+  100% { opacity: 0; transform: scale(1.22); }
+}
