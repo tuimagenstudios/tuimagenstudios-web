@@ -293,3 +293,68 @@ select,#search,#cats button,#info,#mediaControls button{background:#203f38;borde
 @keyframes welcome-fade {
   to { opacity: 0; visibility: hidden; }
 }
+
+/* Display preference beside the language selector. */
+#themeSwitch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  min-height: 44px;
+  padding: 4px;
+  border: 1px solid #77988b;
+  border-radius: 30px;
+  background: #203f38;
+  color: #dbebe1;
+}
+#themeSwitch span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font: 22px/1 system-ui, sans-serif;
+}
+#themeSwitch[aria-pressed="true"] .moon { background: #c5e2d7; color: #15392f; }
+#themeSwitch[aria-pressed="false"] .sun { background: #235548; color: white; }
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  background: #f8f5eb;
+  --ink: #173c32;
+  --secondary: #405f51;
+  --paper: #fffdf7;
+  --wash: #e8eee2;
+  --edge: #a7b9aa;
+}
+[data-theme="light"] body { background: linear-gradient(155deg,#f8f5eb,#f4f6ee 75%); color: var(--ink); }
+[data-theme="light"] header { border-color: var(--edge); }
+[data-theme="light"] .brand img { filter: brightness(.66); }
+[data-theme="light"] :is(#lang,#themeSwitch,#search,#cats,#info,#mediaControls button) { background: var(--paper); color: var(--ink); border-color: var(--edge); }
+[data-theme="light"] #search::placeholder { color: var(--secondary); }
+[data-theme="light"] :focus-visible { outline-color: #28715d !important; }
+[data-theme="light"] .major-section > summary {
+  border-color: var(--edge);
+  background: linear-gradient(90deg,#f0f1e5 0% 28%,#f0f1e5f7 36%,#f0f1e5d6 48%,#f0f1e58a 63%,transparent 86%),var(--cover) right center/74% auto no-repeat,#f0f1e5;
+}
+[data-theme="light"] #sin-alcohol > summary {
+  background: linear-gradient(90deg,#f0f1e5 26%,#f0f1e5f5 40%,#f0f1e58a 63%,transparent 80%),var(--cover) 74% 5px / auto 144% no-repeat,linear-gradient(105deg,#f0f1e5 25%,#ffdfaf 80%,#f3c58e);
+}
+[data-theme="light"] .major-section > summary h2 { color: #14372f; text-shadow: 0 1px 4px #faf8ef; }
+[data-theme="light"] .drink-group { border-color: var(--edge); background: var(--wash); }
+[data-theme="light"] .drink-row { border-color: #cad6c9; background: var(--paper); }
+[data-theme="light"] :is(.drink-group summary,.drink-row h4,.drink-serving strong,.drink-jump,#results > h3,#media a,#printed a) { color: var(--ink); }
+[data-theme="light"] :is(.drink-row p,.drink-serving,.drink-option,#recipe,#extraDrink,#extraGroups small,#totalLabel) { color: var(--secondary); }
+[data-theme="light"] .drink-group summary::after { color: var(--secondary); }
+[data-theme="light"] .tile:nth-child(n) { background: radial-gradient(ellipse at 60% 20%,#fffef9,#e1ebdf); border-color: #b6c8b9; color: var(--ink); }
+[data-theme="light"] .tile small { color: var(--secondary); }
+[data-theme="light"] .tile .options-badge { color: white; }
+[data-theme="light"] #calificacion { border-color: var(--edge); }
+[data-theme="light"] #reviewStars span { color: #68776e; }
+[data-theme="light"] #reviewStars .filled span { color: #975900; }
+[data-theme="light"] .dish-share { color: var(--ink); background: var(--wash); border-color: var(--edge); }
+[data-theme="light"] :is(#instagramPhoto,#sharePhoto,#applyExtras) { background: #235548; color: white; }
+[data-theme="light"] :is(#extraPanel,.extra-foot,#productView .controls) { background: var(--paper); color: var(--ink); border-color: var(--edge); }
+[data-theme="light"] :is(#extraPanel .close,#info .close,.extra-row button,#sizes button,#sizes span) { color: var(--ink); background: var(--wash); border-color: var(--edge); }
+[data-theme="light"] :is(#sizes button,.extra-row button)[aria-pressed="true"] { background: #235548; color: white; }
+[data-theme="light"] .extra-row { border-color: #cad6c9; }
+[data-theme="light"] :is(#con-alcohol,#sin-alcohol)[open] > .section-content { --sparkle: #8d713f; }

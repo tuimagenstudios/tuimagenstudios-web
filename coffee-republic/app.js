@@ -6,6 +6,32 @@ const labels = {
  ru:{menu:"Меню",next:"Далее",prev:"Назад",details:"Рассмотреть",search:"Поиск по меню",all:"Все",photo:"Фото",video:"Видео",close:"Закрыть",empty:"Ничего не найдено.",from:"от",reels:"Блюда и напитки",sizes:"Размер"},
  zh:{menu:"菜单",next:"下一个",prev:"上一个",details:"查看详情",search:"搜索菜单",all:"全部",photo:"照片",video:"视频",close:"关闭",empty:"未找到商品。",from:"起",reels:"浏览商品",sizes:"规格"}
 };
+
+const systemTheme = matchMedia("(prefers-color-scheme: light)");
+const themeKey = "coffee-republic-theme";
+const themeSwitch = $("#themeSwitch");
+const darkModeLabel = {ru:"Тёмная тема", zh:"深色模式", es:"Modo oscuro", en:"Dark mode"};
+let selectedTheme;
+try {
+ const saved = localStorage.getItem(themeKey);
+ if (saved === "light" || saved === "dark") selectedTheme = saved;
+} catch {}
+
+function applyTheme() {
+ const theme = selectedTheme || (systemTheme.matches ? "light" : "dark");
+ document.documentElement.dataset.theme = theme;
+ themeSwitch.setAttribute("aria-pressed", String(theme === "dark"));
+ document.querySelector('meta[name="theme-color"]').content = theme === "light" ? "#f8f5eb" : "#183d34";
+}
+
+themeSwitch.addEventListener("click", () => {
+ selectedTheme = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+ try { localStorage.setItem(themeKey, selectedTheme); } catch {}
+ applyTheme();
+});
+systemTheme.addEventListener("change", applyTheme);
+applyTheme();
+
 const reduced=matchMedia("(prefers-reduced-motion: reduce)");
 const introVideo=document.querySelector("#introVideo");
 let introVisible=false;
@@ -279,6 +305,8 @@ const loadCopy={
 };
 let menuFailed=false;
 function catalog(){
+ themeSwitch.title = darkModeLabel[lang];
+ themeSwitch.setAttribute("aria-label", darkModeLabel[lang]);
  document.documentElement.lang=lang;$("#lang").value=lang;
  $("#lang").ariaLabel=({ru:"Язык меню",zh:"菜单语言",es:"Idioma de la carta",en:"Menu language"})[lang];
  $("#promoTitle").textContent=({en:"Offers",es:"Promociones",ru:"Акции",zh:"优惠活动"})[lang];
