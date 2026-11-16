@@ -309,7 +309,8 @@ async function init(){
   const response=await fetch("menu.json",{cache:"no-cache"});if(!response.ok)throw Error("menu");
   products=await response.json();
  }catch{menuFailed=true;catalog();return}
- catalog();const anchor=location.hash.slice(1);const target=document.getElementById(anchor==="bebidas"?"drinks":anchor==="printed"?"sin-alcohol":anchor);if(target?.classList.contains("major-section")){target.open=true;target.scrollIntoView()}
+ $("#search").value="";
+ catalog();
 }
 $("#retryMenu").onclick=init;
 init();
