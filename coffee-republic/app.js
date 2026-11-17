@@ -125,6 +125,12 @@ $("#results").addEventListener("click", event => {
   card.append(sparkles);
   setTimeout(() => sparkles.remove(), 480);
 });
+document.addEventListener("toggle",e=>{
+ const d=e.target;
+ if(!d.open||!d.matches?.(".major-section,.drink-group")||d.closest("#results")?.dataset.searching)return;
+ const s=d.querySelector(":scope>summary");
+ requestAnimationFrame(()=>s.scrollIntoView({behavior:reduced.matches?"auto":"smooth",block:"start"}));
+},true);
 function majorSection(key,searching){
  const section=document.createElement("details");
  section.className="major-section";section.id=key==="food"?"comida":key;
@@ -162,7 +168,7 @@ function list(){
    p.cat.es==="Café frío y matcha" && p.cardPhoto
   ))
   .map(entry=>({...entry,key})));
- const results=$("#results");results.replaceChildren();
+ const results=$("#results");results.replaceChildren();if(filter)results.dataset.searching="1";else delete results.dataset.searching;
  let lastSection="",lastCat="",drinkGroup,cardGrid,sectionBody;
  for(const {p,i,key} of ordered){
   const useCards=key==="drinks"||!p.drinkSection||(key==="sin-alcohol"&&["Bebidas frescas","Café frío y matcha"].includes(p.cat.es));
@@ -249,54 +255,6 @@ function updateReview(){
  }
 }
 stars.addEventListener("change",updateReview);
-const photoCopy={
- en:{title:"Share your dish on Instagram",hint:"Open your Instagram and choose Story, or take a photo here first.",instagram:"Open my Instagram",take:"Take a photo",choose:"Choose a photo",share:"Share photo…",save:"Save photo",alt:"Preview of your dish",ready:"Tap Share photo and choose Instagram Stories if available. You can also save the photo and choose it from your gallery in Instagram.",fallback:"Save your photo, open your Instagram and choose Story. Select your photo from the gallery.",invalid:"This image could not be opened. Try another photo or take one in Instagram."},
- es:{title:"Compartí tu plato en Instagram",hint:"Abrí tu Instagram y elegí Historia, o sacá primero la foto acá.",instagram:"Abrir mi Instagram",take:"Sacar foto",choose:"Elegir foto",share:"Compartir foto…",save:"Guardar foto",alt:"Vista previa de tu plato",ready:"Tocá Compartir foto y elegí Historias de Instagram si aparece. También podés guardar la foto y elegirla desde la galería en Instagram.",fallback:"Guardá la foto, abrí tu Instagram y elegí Historia. Seleccioná la foto desde la galería.",invalid:"No se pudo abrir esta imagen. Elegí otra o sacá la foto en Instagram."},
- ru:{title:"Поделитесь блюдом в Instagram",hint:"Откройте свой Instagram и выберите «История» или сначала сфотографируйте блюдо здесь.",instagram:"Открыть мой Instagram",take:"Снять фото",choose:"Из галереи",share:"Поделиться фото…",save:"Сохранить фото",alt:"Предпросмотр фото блюда",ready:"Нажмите «Поделиться фото» и выберите истории Instagram, если они доступны. Можно также сохранить фото и выбрать его из галереи в Instagram.",fallback:"Сохраните фото, откройте свой Instagram и выберите «История». Добавьте снимок из галереи.",invalid:"Не удалось открыть изображение. Выберите другое фото или сделайте снимок в Instagram."},
- zh:{title:"在 Instagram 分享美食",hint:"打开自己的 Instagram 并选择「快拍」，也可以先在这里拍照。",instagram:"打开我的 Instagram",take:"拍照",choose:"从相册选择",share:"分享照片…",save:"保存照片",alt:"菜品照片预览",ready:"点「分享照片」，如果选项中有 Instagram 快拍，请选择它。也可以先保存照片，再到 Instagram 从相册添加。",fallback:"保存照片，打开自己的 Instagram，选择「快拍」，然后从相册添加照片。",invalid:"无法打开图片。请选择其他照片，或在 Instagram 内拍照。"}
-};
-let dishFile=null, dishUrl="", photoMessage="", photoRequest=0;
-function updatePhoto(){
- const copy=photoCopy[lang];
- for(const [id,key] of Object.entries({photoTitle:"title",photoHint:"hint",instagramPhoto:"instagram",takePhoto:"take",choosePhoto:"choose",sharePhoto:"share",savePhoto:"save"})){
-  $("#"+id).textContent=copy[key];
- }
- $("#dishPreview").alt=copy.alt;
- $("#photoStatus").textContent=copy[photoMessage]||"";
-}
-async function selectDishPhoto(event){
- const file=event.target.files[0];
- event.target.value="";
- if(!file)return;
- const request=++photoRequest;
- const url=URL.createObjectURL(file);
- const preview=new Image();
- preview.src=url;
- try{await preview.decode()}catch{
-  URL.revokeObjectURL(url);
-  if(request===photoRequest){photoMessage="invalid";updatePhoto()}
-  return;
- }
- if(request!==photoRequest){URL.revokeObjectURL(url);return}
- if(dishUrl)URL.revokeObjectURL(dishUrl);
- dishFile=file;dishUrl=url;
- $("#dishPreview").src=url;
- $("#savePhoto").href=url;$("#savePhoto").download=file.name;
- $("#photoResult").hidden=false;
- const canShare=Boolean(navigator.canShare?.({files:[file]}));
- $("#sharePhoto").hidden=!canShare;
- photoMessage=canShare?"ready":"fallback";updatePhoto();
- (canShare?$("#sharePhoto"):$("#savePhoto")).focus();
-}
-$("#takePhoto").onclick=()=>$("#dishCamera").click();
-$("#choosePhoto").onclick=()=>$("#dishGallery").click();
-$("#dishCamera").onchange=selectDishPhoto;
-$("#dishGallery").onchange=selectDishPhoto;
-$("#sharePhoto").onclick=async()=>{
- if(!dishFile)return;
- try{await navigator.share({files:[dishFile]})}
- catch(error){if(error.name!=="AbortError"){photoMessage="fallback";updatePhoto()}}
-};
 const loadCopy={
  en:{error:"The menu could not be loaded",retry:"Try again"},
  es:{error:"No se pudo cargar la carta",retry:"Volver a cargar"},
@@ -311,8 +269,7 @@ function catalog(){
  $("#lang").ariaLabel=({ru:"Язык меню",zh:"菜单语言",es:"Idioma de la carta",en:"Menu language"})[lang];
  $("#promoTitle").textContent=({en:"Offers",es:"Promociones",ru:"Акции",zh:"优惠活动"})[lang];
  updateReview();
- updatePhoto();
- const t=words();$("#drawerTitle").textContent=menuFailed?loadCopy[lang].error:t.menu;$("#search").placeholder=t.search;$("#search").ariaLabel=t.search;
+ const t=words();$("#drawerTitle").textContent=menuFailed?loadCopy[lang].error:t.menu;$("#search").placeholder=t.search;$("#searchToggle").ariaLabel=t.search;$("#searchToggle").title=t.search;$("#search").ariaLabel=t.search;
  $("#retryMenu").hidden=!menuFailed;$("#retryMenu").textContent=loadCopy[lang].retry;
  $("#search").disabled=!products.length;
  if(products.length)list()
@@ -327,6 +284,13 @@ $("#lang").onchange=e=>{lang=e.target.value;catalog()};
 $("#prev").onclick=()=>choose(index-1);$("#next").onclick=()=>choose(index+1);
 $("#detail").onclick=()=>{details();$("#info").showModal()};
 $("#search").oninput=list;
+function setSearch(open){
+ const s=$("#search");s.hidden=!open;$("#searchToggle").ariaExpanded=String(open);
+ if(open){s.focus();return}
+ if(s.value){s.value="";list()}
+}
+$("#searchToggle").onclick=()=>setSearch($("#search").hidden);
+$("#search").onkeydown=e=>{if(e.key==="Escape"){setSearch(false);$("#searchToggle").focus()}};
 function returnToCatalog(){
  if(history.state?.productView) history.back();
  else $("#productView").close();
